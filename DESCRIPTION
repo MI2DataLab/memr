@@ -1,0 +1,29 @@
+Package: memr
+Type: Package
+Title: Multisource Embeddings for Medical Records
+Version: 0.1.0
+Authors@R: person("Adam Gabriel", "Dobrakowski", email = "dobrakowski@protonmail.com",
+  role = c("aut", "cre"))
+Maintainer: The package maintainer <adamdobrakowski@gmail.com>
+Description: Generates embeddings of terms extracted from medical visits.
+    Generates embeddings of visits. Makes clustering of visits and
+    visualization.
+License: MIT
+Encoding: UTF-8
+LazyData: true
+Imports:
+    dplyr,
+    ggplot2,
+    ggrepel,
+    graphics,
+    grDevices,
+    Rtsne,
+    stats,
+    text2vec,
+    utils
+Suggests:
+    knitr,
+    rmarkdown,
+    testthat
+RoxygenNote: 6.1.1
+VignetteBuilder: knitr
