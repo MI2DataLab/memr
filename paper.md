@@ -58,8 +58,7 @@ subsets of visits with the same diagnosis but different symptoms.
 The basis of ``memr`` is creating of medical terms embeddings based on GloVe algorithm [@pennington2014glove] implemented in R package ``text2vec`` by @text2vec. `memr` allows for validation the quality of computed embeddings by performing and visualizing 'word analogy task' introduced by @mikolov2013efficient. The function `visualize_analogies` produces PCA plots (with ``ggplot2`` package) of given pairs of terms:
 ![](figures/analogies.png)
 
-The embeddings of medical terms are averaged and concatenated to obtain the representation of visit:
-![](figures/schema_embedding.png)
+The embeddings of medical terms are averaged and concatenated to obtain the representation of visit.
 
 By ``memr`` we can perform visits clustering by the k-means algorithm and visualize the visits by the t-SNE algorithm [@maaten2008visualizing] with the use of ``Rtsne`` [@krijthe2015rtsne] package (on the plot each dot corresponds to one visit):
 ![Each dot corresponds to one visit.](figures/seg_pediatria.png)
