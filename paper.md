@@ -61,7 +61,7 @@ The basis of ``memr`` is creating of medical terms embeddings based on GloVe alg
 The embeddings of medical terms are averaged and concatenated to obtain the representation of visit.
 
 By ``memr`` we can perform visits clustering by the k-means algorithm and visualize the visits by the t-SNE algorithm [@maaten2008visualizing] with the use of ``Rtsne`` [@krijthe2015rtsne] package (on the plot each dot corresponds to one visit):
-![Each dot corresponds to one visit.](figures/seg_pediatria2.png)
+![Each dot corresponds to one visit.](figures/seg_pediatria.png)
 
 ``memr`` allows also for visualization of ICD-10 codes by averaging visits' embeddings:
 ![](figures/icd10.png)
