@@ -1,20 +1,23 @@
 ---
 title: 'memr: An R package for medical free-text records embedding and visualization'
-tags:
-  - R
-  - Electronic Health Records
-  - word embeddings
-  - GloVe
-  - medical visits' clustering
 authors:
-  - name: Adam Gabriel Dobrakowski
-    orcid: 0000-0003-0872-7098
-    affiliation: 1
-affiliations:
- - name: University of Warsaw
-   index: 1
-date: 31 January 2020
+- affiliation: 1
+  name: Adam Gabriel Dobrakowski
+  orcid: 0000-0003-0872-7098
+date: "31 January 2020"
+output:
+  html_document:
+    df_print: paged
 bibliography: paper.bib
+tags:
+- R
+- Electronic Health Records
+- word embeddings
+- GloVe
+- medical visits' clustering
+affiliations:
+- index: 1
+  name: University of Warsaw
 ---
 
 <!-- JOSS welcomes submissions from broadly diverse research areas. For this reason, we require that authors include in the paper some sentences that explain the software functionality and domain of use to a non-specialist reader. We also require that authors explain the research applications of the software. The paper should be between 250-1000 words.
@@ -55,7 +58,7 @@ subsets of visits with the same diagnosis but different symptoms.
 
 # memr package
 
-The basis of ``memr`` is creating of medical terms embeddings based on GloVe algorithm [@pennington2014glove] implemented in R package \mbox{``text2vec``} by @text2vec. `memr` allows for validation the quality of computed embeddings by performing and visualizing 'word analogy task' introduced by @mikolov2013efficient. The function \mbox{`visualize_analogies`} produces PCA plots (with ``ggplot2`` package) of given pairs of terms:
+The basis of ``memr`` is creating of medical terms embeddings based on GloVe algorithm [@pennington2014glove] implemented in R package ``text2vec`` by @text2vec. `memr` allows for validation the quality of computed embeddings by performing and visualizing 'word analogy task' introduced by @mikolov2013efficient. The function `visualize_analogies` produces PCA plots (with ``ggplot2`` package) of given pairs of terms:
 ![](figures/analogies.png)
 
 The embeddings of medical terms are averaged and concatenated to obtain the representation of visit.
