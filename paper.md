@@ -71,15 +71,18 @@ visualize_analogies(term_vectors, terms_pairs)
 
 The embeddings of medical terms of interview and examination are averaged and concatenated to obtain a representation of a visit:
 ```
-visits_vectors <- embed_list_visits(interviews, examinations, interview_term_vectors,
+visits_vectors <- embed_list_visits(interviews, examinations,
+                                    interview_term_vectors,
                                     examination_term_vectors)
 ```
 
 If we have more information about visits, such as doctors' specialties or ICD-10 codes (`visits`), ``memr`` can help with
 data analysis and visualization. We can perform visits clustering of specified doctor's specialty by the k-means algorithm. Then we can visualize the visits by the t-SNE algorithm [@maaten2008visualizing] with the use of ``Rtsne`` [@krijthe2015rtsne] package (on the plot each dot corresponds to one visit):
 ```
-clusters <- cluster_visits(visits_vectors, visits, spec = "pediatry", cluster_number = 6)
-visualize_visit_embeddings(visits_vectors, visits, color_by = "cluster", clusters)
+clusters <- cluster_visits(visits_vectors, visits, spec = "pediatry",
+                           cluster_number = 6)
+visualize_visit_embeddings(visits_vectors, visits, color_by = "cluster",
+                           clusters)
 ```
 ![](figures/seg_pediatria.png)
 
