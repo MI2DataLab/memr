@@ -144,38 +144,38 @@ embedding_size <- 5
 
 interview_term_vectors <- embed_terms(merged_terms = interviews, embedding_size = embedding_size,
                                        term_count_min = 1L)
-#> INFO [2020-03-18 11:26:24] 2020-03-18 11:26:24 - epoch 1, expected cost 0.1305
-#> INFO [2020-03-18 11:26:24] 2020-03-18 11:26:24 - epoch 2, expected cost 0.0852
-#> INFO [2020-03-18 11:26:24] 2020-03-18 11:26:24 - epoch 3, expected cost 0.0592
-#> INFO [2020-03-18 11:26:24] 2020-03-18 11:26:24 - epoch 4, expected cost 0.0426
-#> INFO [2020-03-18 11:26:24] 2020-03-18 11:26:24 - epoch 5, expected cost 0.0314
-#> INFO [2020-03-18 11:26:24] 2020-03-18 11:26:24 - epoch 6, expected cost 0.0235
-#> INFO [2020-03-18 11:26:24] 2020-03-18 11:26:24 - epoch 7, expected cost 0.0180
-#> INFO [2020-03-18 11:26:24] 2020-03-18 11:26:24 - epoch 8, expected cost 0.0139
-#> INFO [2020-03-18 11:26:24] 2020-03-18 11:26:24 - epoch 9, expected cost 0.0109
-#> INFO [2020-03-18 11:26:24] 2020-03-18 11:26:24 - epoch 10, expected cost 0.0087
-#> INFO [2020-03-18 11:26:24] 2020-03-18 11:26:24 - epoch 11, expected cost 0.0070
-#> INFO [2020-03-18 11:26:24] 2020-03-18 11:26:24 - epoch 12, expected cost 0.0057
-#> INFO [2020-03-18 11:26:24] 2020-03-18 11:26:24 - epoch 13, expected cost 0.0047
-#> INFO [2020-03-18 11:26:24] 2020-03-18 11:26:24 - epoch 14, expected cost 0.0039
-#> INFO [2020-03-18 11:26:24] 2020-03-18 11:26:24 - epoch 15, expected cost 0.0033
+#> INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 1, expected cost 0.1305
+#> INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 2, expected cost 0.0852
+#> INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 3, expected cost 0.0592
+#> INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 4, expected cost 0.0426
+#> INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 5, expected cost 0.0314
+#> INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 6, expected cost 0.0235
+#> INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 7, expected cost 0.0180
+#> INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 8, expected cost 0.0139
+#> INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 9, expected cost 0.0109
+#> INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 10, expected cost 0.0087
+#> INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 11, expected cost 0.0070
+#> INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 12, expected cost 0.0057
+#> INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 13, expected cost 0.0047
+#> INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 14, expected cost 0.0039
+#> INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 15, expected cost 0.0033
 examination_term_vectors <- embed_terms(merged_terms = examinations, embedding_size = embedding_size,
                                          term_count_min = 1L)
-#> INFO [2020-03-18 11:26:24] 2020-03-18 11:26:24 - epoch 1, expected cost 0.1059
-#> INFO [2020-03-18 11:26:24] 2020-03-18 11:26:24 - epoch 2, expected cost 0.0510
-#> INFO [2020-03-18 11:26:24] 2020-03-18 11:26:24 - epoch 3, expected cost 0.0315
-#> INFO [2020-03-18 11:26:24] 2020-03-18 11:26:24 - epoch 4, expected cost 0.0225
-#> INFO [2020-03-18 11:26:24] 2020-03-18 11:26:24 - epoch 5, expected cost 0.0178
-#> INFO [2020-03-18 11:26:24] 2020-03-18 11:26:24 - epoch 6, expected cost 0.0149
-#> INFO [2020-03-18 11:26:24] 2020-03-18 11:26:24 - epoch 7, expected cost 0.0131
-#> INFO [2020-03-18 11:26:24] 2020-03-18 11:26:24 - epoch 8, expected cost 0.0117
-#> INFO [2020-03-18 11:26:24] 2020-03-18 11:26:24 - epoch 9, expected cost 0.0107
-#> INFO [2020-03-18 11:26:24] 2020-03-18 11:26:24 - epoch 10, expected cost 0.0099
-#> INFO [2020-03-18 11:26:24] 2020-03-18 11:26:24 - epoch 11, expected cost 0.0093
-#> INFO [2020-03-18 11:26:24] 2020-03-18 11:26:24 - epoch 12, expected cost 0.0087
-#> INFO [2020-03-18 11:26:24] 2020-03-18 11:26:24 - epoch 13, expected cost 0.0082
-#> INFO [2020-03-18 11:26:24] 2020-03-18 11:26:24 - epoch 14, expected cost 0.0078
-#> INFO [2020-03-18 11:26:24] 2020-03-18 11:26:24 - epoch 15, expected cost 0.0074
+#> INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 1, expected cost 0.1059
+#> INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 2, expected cost 0.0510
+#> INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 3, expected cost 0.0315
+#> INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 4, expected cost 0.0225
+#> INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 5, expected cost 0.0178
+#> INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 6, expected cost 0.0149
+#> INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 7, expected cost 0.0131
+#> INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 8, expected cost 0.0117
+#> INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 9, expected cost 0.0107
+#> INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 10, expected cost 0.0099
+#> INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 11, expected cost 0.0093
+#> INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 12, expected cost 0.0087
+#> INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 13, expected cost 0.0082
+#> INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 14, expected cost 0.0078
+#> INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 15, expected cost 0.0074
 
 knitr::kable(interview_term_vectors[1:5, ])
 ```
