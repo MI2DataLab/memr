@@ -166,9 +166,10 @@ get_cluster_recommendations <- function(recom_descriptions, clusters,
       data.frame(recommendation = factor(), count = integer(), frequency = numeric())
     }
     else {
-      data.frame(
-        recommendation = unlist(sapply(strsplit(cluster_descr, split = ", "),
-                                       unique))) %>%
+      recom <- data.frame(unlist(sapply(strsplit(cluster_descr, split = ", "),
+                                     unique)))
+      colnames(recom)[1] <- "recommendation"
+      recom %>%
         dplyr::group_by(recommendation) %>%
         dplyr::summarise(count = dplyr::n(), frequency = dplyr::n() / clusters$size[cl]) %>%
         dplyr::arrange(dplyr::desc(frequency))
@@ -176,7 +177,8 @@ get_cluster_recommendations <- function(recom_descriptions, clusters,
   })
   if (category[1] != "all") {
     recom_list <- unique(unlist(recom_table$term[recom_table$category %in% category]))
-    rec_tables <- lapply(rec_tables, function(r) r[r$recommendation %in% recom_list,])
+    rec_tables <- lapply(rec_tables, function(r)
+      r[unlist(r[, "recommendation"]) %in% recom_list, ])
   }
   return(rec_tables)
 }

@@ -45,7 +45,7 @@ can aid doctors in their practice.
  
 To install ``memr``, simply type in an R console (after having installed the `devtools` package, e.g. `install.package('devtools')`):
 ```{r, eval = FALSE}
-devtools::install_git("https://github.com/adamgdobrakowski/memr")
+devtools::install_git("https://github.com/MI2DataLab/memr")
 ```
 
 ## Usage

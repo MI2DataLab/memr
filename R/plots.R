@@ -377,7 +377,7 @@ visualize_icd10 <- function(visits_vectors, visit_table,
   names(colors) <- unique(codes_X)
 
   t <- table(visit_table$icd10)[codes]
-  sizes <- log(t) + 0.7
+  sizes <- log(1000 * t / max(t)) + 0.7
 
   g <- ggplot2::ggplot(plot_data[[1]], ggplot2::aes(plot_data[[1]][, 1],
                                                     plot_data[[1]][, 2]),
