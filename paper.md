@@ -3,7 +3,7 @@ title: 'memr: An R package for medical free-text records embedding and visualiza
 authors:
 - affiliation: 1
   name: Adam Gabriel Dobrakowski
-  orcid: 0000-0003-0872-7098
+  orcid: 0000-0001-6460-3079
 date: "31 January 2020"
 output:
   html_document:
