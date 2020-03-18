@@ -58,15 +58,37 @@ subsets of visits with the same diagnosis but different symptoms.
 
 # memr package
 
-The basis of ``memr`` is creating of medical terms embeddings based on GloVe algorithm [@pennington2014glove] implemented in R package ``text2vec`` by @text2vec. `memr` allows for validation the quality of computed embeddings by performing and visualizing 'word analogy task' introduced by @mikolov2013efficient. The function `visualize_analogies` produces PCA plots (with ``ggplot2`` package) of given pairs of terms:
+The basis of ``memr`` is creating of medical terms embeddings based on GloVe algorithm [@pennington2014glove] implemented in R package ``text2vec`` by @text2vec. Having a vector of terms extracted from visits' descriptions `merged_terms` we can compute term embeddings by:
+```
+term_vectors <- embed_terms(merged_terms)
+```
+
+We can validate the quality of computed embeddings by performing and visualizing 'word analogy task' introduced by @mikolov2013efficient. The function `visualize_analogies` produces PCA plots (with ``ggplot2`` package) of given pairs of terms (`terms_pairs`):
+```
+visualize_analogies(term_vectors, terms_pairs)
+```
 ![](figures/analogies.png)
 
-The embeddings of medical terms are averaged and concatenated to obtain the representation of visit.
+The embeddings of medical terms of interview and examination are averaged and concatenated to obtain a representation of a visit:
+```
+visits_vectors <- embed_list_visits(interviews, examinations, interview_term_vectors,
+                                    examination_term_vectors)
+```
 
-By ``memr`` we can perform visits clustering by the k-means algorithm and visualize the visits by the t-SNE algorithm [@maaten2008visualizing] with the use of ``Rtsne`` [@krijthe2015rtsne] package (on the plot each dot corresponds to one visit):
-![Each dot corresponds to one visit.](figures/seg_pediatria.png)
+If we have more information about visits, such as doctors' specialties or ICD-10 codes (`visits`), ``memr`` can help with
+data analysis and visualization. We can perform visits clustering of specified doctor's specialty by the k-means algorithm. Then we can visualize the visits by the t-SNE algorithm [@maaten2008visualizing] with the use of ``Rtsne`` [@krijthe2015rtsne] package (on the plot each dot corresponds to one visit):
+```
+clusters <- cluster_visits(visits_vectors, visits, spec = "pediatry", cluster_number = 6)
+visualize_visit_embeddings(visits_vectors, visits, color_by = "cluster", clusters)
+```
+![](figures/seg_pediatria.png)
+
+Having recommendations in our data, we can show the most popular recommendations for each cluster by the function ``get_cluster_recommendations``.
 
 ``memr`` allows also for visualization of ICD-10 codes by averaging visits' embeddings:
+```
+visualize_icd10(visits_vectors, visits)
+```
 ![](figures/icd10.png)
 
 
