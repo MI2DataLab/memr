@@ -100,15 +100,15 @@
 
 
 <hr>
-<p>title: ‘memr: An R package for medical free-text records embedding and visualization’ tags:</p>
+<p>title: ‘memr: An R package for medical free-text records embedding and visualization’ authors:</p>
 <ul>
+<li>affiliation: 1 name: Adam Gabriel Dobrakowski orcid: 0000-0001-6460-3079 date: “31 January 2020” output: html_document: df_print: paged bibliography: paper.bib tags:</li>
 <li>R</li>
 <li>Electronic Health Records</li>
 <li>word embeddings</li>
 <li>GloVe</li>
-<li>medical visits’ clustering authors:</li>
-<li>name: Adam Gabriel Dobrakowski orcid: 0000-0003-0872-7098 affiliation: 1 affiliations:</li>
-<li>name: University of Warsaw index: 1 date: 31 January 2020 bibliography: paper.bib —</li>
+<li>medical visits’ clustering affiliations:</li>
+<li>index: 1 name: University of Warsaw —</li>
 </ul>
 <!-- JOSS welcomes submissions from broadly diverse research areas. For this reason, we require that authors include in the paper some sentences that explain the software functionality and domain of use to a non-specialist reader. We also require that authors explain the research applications of the software. The paper should be between 250-1000 words.
 
@@ -132,10 +132,25 @@ Mention (if applicable) of any past or ongoing research projects using the softw
 <div id="memr-package" class="section level1">
 <h1 class="hasAnchor">
 <a href="#memr-package" class="anchor"></a>memr package</h1>
-<p>The basis of <code>memr</code> is creating of medical terms embeddings based on GloVe algorithm [@pennington2014glove] implemented in R package <code>text2vec</code> by @text2vec. <code>memr</code> allows for validation the quality of computed embeddings by performing and visualizing ‘word analogy task’ introduced by @mikolov2013efficient. The function <code>visualize_analogies</code> produces PCA plots (with <code>ggplot2</code> package) of given pairs of terms: <img src="figures/analogies.png"></p>
-<p>The embeddings of medical terms are averaged and concatenated to obtain the representation of visit: <img src="figures/schema_embedding.png"></p>
-<p>By <code>memr</code> we can perform visits clustering by the k-means algorithm and visualize the visits by the t-SNE algorithm [@maaten2008visualizing] with the use of <code>Rtsne</code> [@krijthe2015rtsne] package (on the plot each dot corresponds to one visit): <img src="figures/seg_pediatria.png" alt="Each dot corresponds to one visit."></p>
-<p><code>memr</code> allows also for visualization of ICD-10 codes by averaging visits’ embeddings: <img src="figures/icd10.png"></p>
+<p>The basis of <code>memr</code> is creating of medical terms embeddings based on GloVe algorithm [@pennington2014glove] implemented in R package <code>text2vec</code> by @text2vec. Having a vector of terms extracted from visits’ descriptions <code>merged_terms</code> we can compute term embeddings by:</p>
+<pre><code>term_vectors &lt;- embed_terms(merged_terms)</code></pre>
+<p>We can validate the quality of computed embeddings by performing and visualizing ‘word analogy task’ introduced by @mikolov2013efficient. The function <code>visualize_analogies</code> produces PCA plots (with <code>ggplot2</code> package) of given pairs of terms (<code>terms_pairs</code>):</p>
+<pre><code><a href="reference/visualize_analogies.html">visualize_analogies(term_vectors, terms_pairs)</a></code></pre>
+<p><img src="figures/analogies.png"></p>
+<p>The embeddings of medical terms of interview and examination are averaged and concatenated to obtain a representation of a visit:</p>
+<pre><code>visits_vectors &lt;- embed_list_visits(interviews, examinations,
+                                    interview_term_vectors,
+                                    examination_term_vectors)</code></pre>
+<p>If we have more information about visits, such as doctors’ specialties or ICD-10 codes (<code>visits</code>), <code>memr</code> can help with data analysis and visualization. We can perform visits clustering of specified doctor’s specialty by the k-means algorithm. Then we can visualize the visits by the t-SNE algorithm [@maaten2008visualizing] with the use of <code>Rtsne</code> [@krijthe2015rtsne] package (on the plot each dot corresponds to one visit):</p>
+<pre><code>clusters &lt;- cluster_visits(visits_vectors, visits, spec = "pediatry",
+                           cluster_number = 6)
+visualize_visit_embeddings(visits_vectors, visits, color_by = "cluster",
+                           clusters)</code></pre>
+<p><img src="figures/seg_pediatria.png"></p>
+<p>Having recommendations in our data, we can show the most popular recommendations for each cluster by the function <code>get_cluster_recommendations</code>.</p>
+<p><code>memr</code> allows also for visualization of ICD-10 codes by averaging visits’ embeddings:</p>
+<pre><code><a href="reference/visualize_icd10.html">visualize_icd10(visits_vectors, visits)</a></code></pre>
+<p><img src="figures/icd10.png"></p>
 </div>
 <div id="acknowledgements" class="section level1">
 <h1 class="hasAnchor">

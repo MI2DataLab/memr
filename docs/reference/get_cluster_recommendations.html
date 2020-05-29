@@ -113,8 +113,8 @@ of recommendation terms can be specified.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>get_cluster_recommendations</span>(<span class='no'>recom_descriptions</span>, <span class='no'>clusters</span>, <span class='no'>category</span>,
-  <span class='no'>recom_table</span>)</pre>
+    <pre class="usage"><span class='fu'>get_cluster_recommendations</span>(<span class='no'>recom_descriptions</span>, <span class='no'>clusters</span>,
+  <span class='kw'>category</span> <span class='kw'>=</span> <span class='st'>"all"</span>, <span class='no'>recom_table</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -131,7 +131,7 @@ terms in the descriptions are separated by ", "</p></td>
     <tr>
       <th>category</th>
       <td><p>A vector of categories of the terms to be returned or <code>"all"</code>
-(default: <code><a href='https://rdrr.io/r/base/c.html'>c("proc", "bad", "lcz", "dieta-pokarm", "lk")</a></code>)</p></td>
+(default: <code>"all"</code>)</p></td>
     </tr>
     <tr>
       <th>recom_table</th>
@@ -154,13 +154,85 @@ terms in the descriptions are separated by ", "</p></td>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>inter_term_vectors</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='embed_terms.html'>embed_terms</a></span>(<span class='no'>interview_1000</span>, <span class='kw'>embedding_size</span> <span class='kw'>=</span> <span class='fl'>10L</span>)</div><div class='output co'>#&gt; <span class='error'>Error in gsub(", ", ",", merged_terms): nie znaleziono obiektu 'interview_1000'</span></div><div class='input'><span class='no'>exam_term_vectors</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='embed_terms.html'>embed_terms</a></span>(<span class='no'>examination_1000</span>, <span class='kw'>embedding_size</span> <span class='kw'>=</span> <span class='fl'>10L</span>)</div><div class='output co'>#&gt; <span class='error'>Error in gsub(", ", ",", merged_terms): nie znaleziono obiektu 'examination_1000'</span></div><div class='input'><span class='no'>visits_vectors</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='embed_list_visits.html'>embed_list_visits</a></span>(<span class='no'>interview_1000</span>,
-  <span class='no'>examination_1000</span>, <span class='no'>inter_term_vectors</span>, <span class='no'>exam_term_vectors</span>)</div><div class='output co'>#&gt; <span class='error'>Error in unique(c(names(inter_descriptions), names(exam_descriptions))): nie znaleziono obiektu 'interview_1000'</span></div><div class='input'><span class='no'>clusters</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='cluster_visits.html'>cluster_visits</a></span>(<span class='no'>visits_vectors</span>, <span class='no'>visits_1000</span>,
-                           <span class='kw'>spec</span> <span class='kw'>=</span> <span class='st'>"medycyna rodzinna"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in cluster_visits(visits_vectors, visits_1000, spec = "medycyna rodzinna"): nie znaleziono obiektu 'visits_1000'</span></div><div class='input'>
-<span class='fu'>get_cluster_recommendations</span>(<span class='no'>recommendation_1000</span>, <span class='no'>clusters</span>, <span class='kw'>recom_table</span> <span class='kw'>=</span> <span class='no'>terms_categories</span>)</div><div class='output co'>#&gt; <span class='error'>Error in nrow(clusters$centers): nie znaleziono obiektu 'clusters'</span></div><div class='input'><span class='fu'>get_cluster_recommendations</span>(<span class='no'>recommendation_1000</span>, <span class='no'>clusters</span>, <span class='kw'>recom_table</span> <span class='kw'>=</span> <span class='no'>terms_categories</span>,
-<span class='kw'>category</span> <span class='kw'>=</span> <span class='st'>"anat"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in nrow(clusters$centers): nie znaleziono obiektu 'clusters'</span></div><div class='input'><span class='fu'>get_cluster_recommendations</span>(<span class='no'>recommendation_1000</span>, <span class='no'>clusters</span>, <span class='kw'>recom_table</span> <span class='kw'>=</span> <span class='no'>terms_categories</span>,
-<span class='kw'>category</span> <span class='kw'>=</span> <span class='st'>"all"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in nrow(clusters$centers): nie znaleziono obiektu 'clusters'</span></div><div class='input'>
-</div></pre>
+    <pre class="examples"><div class='input'><span class='no'>inter_term_vectors</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='embed_terms.html'>embed_terms</a></span>(<span class='no'>interviews</span>, <span class='kw'>embedding_size</span> <span class='kw'>=</span> <span class='fl'>10L</span>,
+                                  <span class='kw'>term_count_min</span> <span class='kw'>=</span> <span class='fl'>1L</span>)</div><div class='output co'>#&gt; INFO [2020-05-29 09:12:06] 2020-05-29 09:12:06 - epoch 1, expected cost 0.1702
+#&gt; INFO [2020-05-29 09:12:06] 2020-05-29 09:12:06 - epoch 2, expected cost 0.0983
+#&gt; INFO [2020-05-29 09:12:06] 2020-05-29 09:12:06 - epoch 3, expected cost 0.0628
+#&gt; INFO [2020-05-29 09:12:06] 2020-05-29 09:12:06 - epoch 4, expected cost 0.0421
+#&gt; INFO [2020-05-29 09:12:06] 2020-05-29 09:12:06 - epoch 5, expected cost 0.0293
+#&gt; INFO [2020-05-29 09:12:06] 2020-05-29 09:12:06 - epoch 6, expected cost 0.0209
+#&gt; INFO [2020-05-29 09:12:06] 2020-05-29 09:12:06 - epoch 7, expected cost 0.0154
+#&gt; INFO [2020-05-29 09:12:06] 2020-05-29 09:12:06 - epoch 8, expected cost 0.0116
+#&gt; INFO [2020-05-29 09:12:06] 2020-05-29 09:12:06 - epoch 9, expected cost 0.0088
+#&gt; INFO [2020-05-29 09:12:06] 2020-05-29 09:12:06 - epoch 10, expected cost 0.0069
+#&gt; INFO [2020-05-29 09:12:06] 2020-05-29 09:12:06 - epoch 11, expected cost 0.0054
+#&gt; INFO [2020-05-29 09:12:06] 2020-05-29 09:12:06 - epoch 12, expected cost 0.0042
+#&gt; INFO [2020-05-29 09:12:06] 2020-05-29 09:12:06 - epoch 13, expected cost 0.0033
+#&gt; INFO [2020-05-29 09:12:06] 2020-05-29 09:12:06 - epoch 14, expected cost 0.0027
+#&gt; INFO [2020-05-29 09:12:06] 2020-05-29 09:12:06 - epoch 15, expected cost 0.0021</div><div class='input'><span class='no'>exam_term_vectors</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='embed_terms.html'>embed_terms</a></span>(<span class='no'>examinations</span>, <span class='kw'>embedding_size</span> <span class='kw'>=</span> <span class='fl'>10L</span>,
+                                 <span class='kw'>term_count_min</span> <span class='kw'>=</span> <span class='fl'>1L</span>)</div><div class='output co'>#&gt; INFO [2020-05-29 09:12:07] 2020-05-29 09:12:07 - epoch 1, expected cost 0.0729
+#&gt; INFO [2020-05-29 09:12:07] 2020-05-29 09:12:07 - epoch 2, expected cost 0.0370
+#&gt; INFO [2020-05-29 09:12:07] 2020-05-29 09:12:07 - epoch 3, expected cost 0.0243
+#&gt; INFO [2020-05-29 09:12:07] 2020-05-29 09:12:07 - epoch 4, expected cost 0.0180
+#&gt; INFO [2020-05-29 09:12:07] 2020-05-29 09:12:07 - epoch 5, expected cost 0.0142
+#&gt; INFO [2020-05-29 09:12:07] 2020-05-29 09:12:07 - epoch 6, expected cost 0.0118
+#&gt; INFO [2020-05-29 09:12:07] 2020-05-29 09:12:07 - epoch 7, expected cost 0.0100
+#&gt; INFO [2020-05-29 09:12:07] 2020-05-29 09:12:07 - epoch 8, expected cost 0.0087
+#&gt; INFO [2020-05-29 09:12:07] 2020-05-29 09:12:07 - epoch 9, expected cost 0.0076
+#&gt; INFO [2020-05-29 09:12:07] 2020-05-29 09:12:07 - epoch 10, expected cost 0.0068
+#&gt; INFO [2020-05-29 09:12:07] 2020-05-29 09:12:07 - epoch 11, expected cost 0.0061
+#&gt; INFO [2020-05-29 09:12:07] 2020-05-29 09:12:07 - epoch 12, expected cost 0.0054
+#&gt; INFO [2020-05-29 09:12:07] 2020-05-29 09:12:07 - epoch 13, expected cost 0.0049
+#&gt; INFO [2020-05-29 09:12:07] 2020-05-29 09:12:07 - epoch 14, expected cost 0.0044
+#&gt; INFO [2020-05-29 09:12:07] 2020-05-29 09:12:07 - epoch 15, expected cost 0.0040</div><div class='input'><span class='no'>visits_vectors</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='embed_list_visits.html'>embed_list_visits</a></span>(<span class='no'>interviews</span>,
+                                    <span class='no'>examinations</span>, <span class='no'>inter_term_vectors</span>, <span class='no'>exam_term_vectors</span>)
+<span class='no'>clusters</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='cluster_visits.html'>cluster_visits</a></span>(<span class='no'>visits_vectors</span>, <span class='no'>visits</span>,
+                           <span class='kw'>spec</span> <span class='kw'>=</span> <span class='st'>"internist"</span>,
+                           <span class='kw'>cluster_number</span> <span class='kw'>=</span> <span class='fl'>2L</span>)
+
+<span class='fu'>get_cluster_recommendations</span>(<span class='no'>recommendations</span>, <span class='no'>clusters</span>, <span class='kw'>recom_table</span> <span class='kw'>=</span> <span class='no'>terms_categories</span>)</div><div class='output co'>#&gt; [[1]]
+#&gt; <span style='color: #949494;'># A tibble: 4 x 3</span><span>
+#&gt;   recommendation  count frequency
+#&gt;   </span><span style='color: #949494;font-style: italic;'>&lt;fct&gt;</span><span>           </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span>     </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt; </span><span style='color: #BCBCBC;'>1</span><span> hospital            2       1  
+#&gt; </span><span style='color: #BCBCBC;'>2</span><span> endocrinologist     1       0.5
+#&gt; </span><span style='color: #BCBCBC;'>3</span><span> ophthalmologist     1       0.5
+#&gt; </span><span style='color: #BCBCBC;'>4</span><span> treatment           1       0.5
+#&gt; 
+#&gt; [[2]]
+#&gt; </span><span style='color: #949494;'># A tibble: 3 x 3</span><span>
+#&gt;   recommendation count frequency
+#&gt;   </span><span style='color: #949494;font-style: italic;'>&lt;fct&gt;</span><span>          </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span>     </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt; </span><span style='color: #BCBCBC;'>1</span><span> hospital           1     0.333
+#&gt; </span><span style='color: #BCBCBC;'>2</span><span> internist          1     0.333
+#&gt; </span><span style='color: #BCBCBC;'>3</span><span> sleep              1     0.333
+#&gt; </div><div class='input'><span class='fu'>get_cluster_recommendations</span>(<span class='no'>recommendations</span>, <span class='no'>clusters</span>, <span class='kw'>recom_table</span> <span class='kw'>=</span> <span class='no'>terms_categories</span>,
+<span class='kw'>category</span> <span class='kw'>=</span> <span class='st'>"anatomic"</span>)</div><div class='output co'>#&gt; [[1]]
+#&gt; </span><span style='color: #949494;'># A tibble: 0 x 3</span><span>
+#&gt; </span><span style='color: #949494;'># … with 3 variables: recommendation </span><span style='color: #949494;font-style: italic;'>&lt;fct&gt;</span><span style='color: #949494;'>, count </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span style='color: #949494;'>, frequency </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt; 
+#&gt; [[2]]
+#&gt; </span><span style='color: #949494;'># A tibble: 0 x 3</span><span>
+#&gt; </span><span style='color: #949494;'># … with 3 variables: recommendation </span><span style='color: #949494;font-style: italic;'>&lt;fct&gt;</span><span style='color: #949494;'>, count </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span style='color: #949494;'>, frequency </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt; </div><div class='input'><span class='fu'>get_cluster_recommendations</span>(<span class='no'>recommendations</span>, <span class='no'>clusters</span>, <span class='kw'>recom_table</span> <span class='kw'>=</span> <span class='no'>terms_categories</span>,
+<span class='kw'>category</span> <span class='kw'>=</span> <span class='st'>"all"</span>)</div><div class='output co'>#&gt; [[1]]
+#&gt; </span><span style='color: #949494;'># A tibble: 4 x 3</span><span>
+#&gt;   recommendation  count frequency
+#&gt;   </span><span style='color: #949494;font-style: italic;'>&lt;fct&gt;</span><span>           </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span>     </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt; </span><span style='color: #BCBCBC;'>1</span><span> hospital            2       1  
+#&gt; </span><span style='color: #BCBCBC;'>2</span><span> endocrinologist     1       0.5
+#&gt; </span><span style='color: #BCBCBC;'>3</span><span> ophthalmologist     1       0.5
+#&gt; </span><span style='color: #BCBCBC;'>4</span><span> treatment           1       0.5
+#&gt; 
+#&gt; [[2]]
+#&gt; </span><span style='color: #949494;'># A tibble: 3 x 3</span><span>
+#&gt;   recommendation count frequency
+#&gt;   </span><span style='color: #949494;font-style: italic;'>&lt;fct&gt;</span><span>          </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span>     </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt; </span><span style='color: #BCBCBC;'>1</span><span> hospital           1     0.333
+#&gt; </span><span style='color: #BCBCBC;'>2</span><span> internist          1     0.333
+#&gt; </span><span style='color: #BCBCBC;'>3</span><span> sleep              1     0.333
+#&gt; </div><div class='input'>
+</div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

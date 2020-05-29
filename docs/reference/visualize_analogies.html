@@ -120,7 +120,7 @@ only the pairs with at least one solved analogy task are plotted.</p>
     </div>
 
     <pre class="usage"><span class='fu'>visualize_analogies</span>(<span class='no'>term_vectors</span>, <span class='no'>terms</span>, <span class='kw'>find_analogies</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>save</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>path_to_save</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>5L</span>)</pre>
+  <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>5L</span>, <span class='kw'>save</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>path_to_save</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -139,17 +139,17 @@ only the pairs with at least one solved analogy task are plotted.</p>
 before the plotting (default: FALSE)</p></td>
     </tr>
     <tr>
+      <th>n</th>
+      <td><p>An optional number of neighbors included in analogies (default: 5),
+needed only if <code>find_analogies = TRUE</code></p></td>
+    </tr>
+    <tr>
       <th>save</th>
       <td><p>A logical indicating if the plot should be saved to the file</p></td>
     </tr>
     <tr>
       <th>path_to_save</th>
       <td><p>An optional string of the path to the target PDF file</p></td>
-    </tr>
-    <tr>
-      <th>n</th>
-      <td><p>An optional number of neighbors included in analogies (default: 5),
-needed only if <code>find_analogies = TRUE</code></p></td>
     </tr>
     </table>
     
@@ -159,11 +159,23 @@ needed only if <code>find_analogies = TRUE</code></p></td>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>term_vectors</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='embed_terms.html'>embed_terms</a></span>(<span class='no'>interview_1000</span>, <span class='kw'>embedding_size</span> <span class='kw'>=</span> <span class='fl'>5L</span>)</div><div class='output co'>#&gt; <span class='error'>Error in gsub(", ", ",", merged_terms): nie znaleziono obiektu 'interview_1000'</span></div><div class='input'>
-<span class='no'>terms1</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"katar"</span>, <span class='st'>"ból głowy"</span>)
-<span class='no'>terms2</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"nos"</span>, <span class='st'>"głowa"</span>)
-<span class='fu'>visualize_analogies</span>(<span class='no'>term_vectors</span>, <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='no'>terms1</span>, <span class='no'>terms2</span>))</div><div class='output co'>#&gt; <span class='error'>Error in rownames(term_vectors): nie znaleziono obiektu 'term_vectors'</span></div><div class='input'>
-<span class='fu'>visualize_analogies</span>(<span class='no'>term_vectors</span>, <span class='no'>terms_pairs_test</span>$<span class='no'>man_woman</span>)</div><div class='output co'>#&gt; <span class='error'>Error in rownames(term_vectors): nie znaleziono obiektu 'term_vectors'</span></div><div class='input'><span class='fu'>visualize_analogies</span>(<span class='no'>term_vectors</span>, <span class='no'>terms_pairs_test</span>$<span class='no'>man_woman</span>, <span class='kw'>find_analogies</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; <span class='error'>Error in rownames(term_vectors): nie znaleziono obiektu 'term_vectors'</span></div><div class='input'><span class='fu'>visualize_analogies</span>(<span class='no'>term_vectors</span>, <span class='no'>terms_pairs_test</span>$<span class='no'>man_woman</span>, <span class='kw'>find_analogies</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>10</span>)</div><div class='output co'>#&gt; <span class='error'>Error in rownames(term_vectors): nie znaleziono obiektu 'term_vectors'</span></div><div class='input'><span class='fu'>visualize_analogies</span>(<span class='no'>term_vectors</span>, <span class='no'>terms_pairs_test</span>$<span class='no'>right</span>)</div><div class='output co'>#&gt; <span class='error'>Error in rownames(term_vectors): nie znaleziono obiektu 'term_vectors'</span></div><div class='input'>
+    <pre class="examples"><div class='input'><span class='no'>term_vectors</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='embed_terms.html'>embed_terms</a></span>(<span class='no'>examinations</span>, <span class='kw'>embedding_size</span> <span class='kw'>=</span> <span class='fl'>5L</span>,
+  <span class='kw'>term_count_min</span> <span class='kw'>=</span> <span class='fl'>1L</span>)</div><div class='output co'>#&gt; INFO [2020-05-29 09:12:07] 2020-05-29 09:12:07 - epoch 1, expected cost 0.1059
+#&gt; INFO [2020-05-29 09:12:07] 2020-05-29 09:12:07 - epoch 2, expected cost 0.0510
+#&gt; INFO [2020-05-29 09:12:07] 2020-05-29 09:12:07 - epoch 3, expected cost 0.0315
+#&gt; INFO [2020-05-29 09:12:07] 2020-05-29 09:12:07 - epoch 4, expected cost 0.0225
+#&gt; INFO [2020-05-29 09:12:07] 2020-05-29 09:12:07 - epoch 5, expected cost 0.0178
+#&gt; INFO [2020-05-29 09:12:07] 2020-05-29 09:12:07 - epoch 6, expected cost 0.0149
+#&gt; INFO [2020-05-29 09:12:07] 2020-05-29 09:12:07 - epoch 7, expected cost 0.0131
+#&gt; INFO [2020-05-29 09:12:07] 2020-05-29 09:12:07 - epoch 8, expected cost 0.0117
+#&gt; INFO [2020-05-29 09:12:07] 2020-05-29 09:12:07 - epoch 9, expected cost 0.0107
+#&gt; INFO [2020-05-29 09:12:07] 2020-05-29 09:12:07 - epoch 10, expected cost 0.0099
+#&gt; INFO [2020-05-29 09:12:07] 2020-05-29 09:12:07 - epoch 11, expected cost 0.0093
+#&gt; INFO [2020-05-29 09:12:07] 2020-05-29 09:12:07 - epoch 12, expected cost 0.0087
+#&gt; INFO [2020-05-29 09:12:07] 2020-05-29 09:12:07 - epoch 13, expected cost 0.0082
+#&gt; INFO [2020-05-29 09:12:07] 2020-05-29 09:12:07 - epoch 14, expected cost 0.0078
+#&gt; INFO [2020-05-29 09:12:07] 2020-05-29 09:12:07 - epoch 15, expected cost 0.0074</div><div class='input'><span class='fu'>visualize_analogies</span>(<span class='no'>term_vectors</span>, <span class='no'>terms_pairs_test</span>$<span class='no'>person</span>)</div><div class='img'><img src='visualize_analogies-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'>visualize_analogies</span>(<span class='no'>term_vectors</span>, <span class='no'>terms_pairs_test</span>$<span class='no'>person</span>,
+  <span class='kw'>find_analogies</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>10</span>)</div><div class='img'><img src='visualize_analogies-2.png' alt='' width='700' height='433' /></div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

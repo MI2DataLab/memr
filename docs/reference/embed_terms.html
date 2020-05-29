@@ -138,15 +138,11 @@ separated by <code>", "</code></p></td>
     </tr>
     <tr>
       <th>x_max</th>
-      <td><p>A x_max parameter of GloVe, see <code><a href='https://rdrr.io/pkg/text2vec/man/GlobalVectors.html'>?text2vec::GlobalVectors</a></code> (default: 10)</p></td>
+      <td><p>A <code>x_max</code> parameter of GloVe, see <code><a href='https://rdrr.io/pkg/text2vec/man/GlobalVectors.html'>?text2vec::GlobalVectors</a></code> (default: 10)</p></td>
     </tr>
     <tr>
       <th>n_iter</th>
       <td><p>A number of epochs of GloVe (default: 15)</p></td>
-    </tr>
-    <tr>
-      <th>n_iter_glove</th>
-      <td><p>A number of iterations of the GloVe algorithm (default: 15)</p></td>
     </tr>
     </table>
     
@@ -156,8 +152,132 @@ separated by <code>", "</code></p></td>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>inter_term_vectors</span> <span class='kw'>&lt;-</span> <span class='fu'>embed_terms</span>(<span class='no'>interview_1000</span>)</div><div class='output co'>#&gt; <span class='error'>Error in gsub(", ", ",", merged_terms): nie znaleziono obiektu 'interview_1000'</span></div><div class='input'><span class='no'>inter_term_vectors</span>[<span class='fl'>1</span>:<span class='fl'>10</span>, ]</div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): nie znaleziono obiektu 'inter_term_vectors'</span></div><div class='input'><span class='no'>inter_term_vectors</span> <span class='kw'>&lt;-</span> <span class='fu'>embed_terms</span>(<span class='no'>interview_1000</span>, <span class='kw'>embedding_size</span> <span class='kw'>=</span> <span class='fl'>10L</span>)</div><div class='output co'>#&gt; <span class='error'>Error in gsub(", ", ",", merged_terms): nie znaleziono obiektu 'interview_1000'</span></div><div class='input'><span class='no'>inter_term_vectors</span>[<span class='fl'>1</span>:<span class='fl'>10</span>, ]</div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): nie znaleziono obiektu 'inter_term_vectors'</span></div><div class='input'><span class='no'>inter_term_vectors</span> <span class='kw'>&lt;-</span> <span class='fu'>embed_terms</span>(<span class='no'>interview_1000</span>, <span class='kw'>embedding_size</span> <span class='kw'>=</span> <span class='fl'>10L</span>,
-<span class='kw'>term_count_min</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>n_iter</span> <span class='kw'>=</span> <span class='fl'>50</span>, <span class='kw'>x_max</span> <span class='kw'>=</span> <span class='fl'>20</span>)</div><div class='output co'>#&gt; <span class='error'>Error in gsub(", ", ",", merged_terms): nie znaleziono obiektu 'interview_1000'</span></div><div class='input'><span class='no'>inter_term_vectors</span>[<span class='fl'>1</span>:<span class='fl'>10</span>, ]</div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): nie znaleziono obiektu 'inter_term_vectors'</span></div><div class='input'>
+    <pre class="examples"><div class='input'><span class='no'>inter_term_vectors</span> <span class='kw'>&lt;-</span> <span class='fu'>embed_terms</span>(<span class='no'>interviews</span>,
+  <span class='kw'>term_count_min</span> <span class='kw'>=</span> <span class='fl'>1L</span>)</div><div class='output co'>#&gt; INFO [2020-05-29 09:12:04] 2020-05-29 09:12:04 - epoch 1, expected cost 0.1586
+#&gt; INFO [2020-05-29 09:12:04] 2020-05-29 09:12:04 - epoch 2, expected cost 0.0669
+#&gt; INFO [2020-05-29 09:12:04] 2020-05-29 09:12:04 - epoch 3, expected cost 0.0351
+#&gt; INFO [2020-05-29 09:12:04] 2020-05-29 09:12:04 - epoch 4, expected cost 0.0207
+#&gt; INFO [2020-05-29 09:12:04] 2020-05-29 09:12:04 - epoch 5, expected cost 0.0132
+#&gt; INFO [2020-05-29 09:12:04] 2020-05-29 09:12:04 - epoch 6, expected cost 0.0089
+#&gt; INFO [2020-05-29 09:12:04] 2020-05-29 09:12:04 - epoch 7, expected cost 0.0063
+#&gt; INFO [2020-05-29 09:12:04] 2020-05-29 09:12:04 - epoch 8, expected cost 0.0045
+#&gt; INFO [2020-05-29 09:12:04] 2020-05-29 09:12:04 - epoch 9, expected cost 0.0033
+#&gt; INFO [2020-05-29 09:12:04] 2020-05-29 09:12:04 - epoch 10, expected cost 0.0025
+#&gt; INFO [2020-05-29 09:12:04] 2020-05-29 09:12:04 - epoch 11, expected cost 0.0019
+#&gt; INFO [2020-05-29 09:12:04] 2020-05-29 09:12:04 - epoch 12, expected cost 0.0014
+#&gt; INFO [2020-05-29 09:12:04] 2020-05-29 09:12:04 - epoch 13, expected cost 0.0011
+#&gt; INFO [2020-05-29 09:12:04] 2020-05-29 09:12:04 - epoch 14, expected cost 0.0008
+#&gt; INFO [2020-05-29 09:12:04] 2020-05-29 09:12:04 - epoch 15, expected cost 0.0006</div><div class='input'><span class='no'>inter_term_vectors</span></div><div class='output co'>#&gt;                [,1]        [,2]       [,3]       [,4]       [,5]        [,6]
+#&gt; rhinitis -0.4141653 -0.06603279  0.4510896  0.1317240  0.2545184 -0.14076030
+#&gt; fever    -0.2915136  0.34390992  0.4086928  0.0809114  0.5180160  0.02321707
+#&gt; eye       0.4576119 -0.04622410 -0.1722486 -0.3916990 -0.2767691  0.30214053
+#&gt; cough    -0.2981628  0.45667726  0.1871258 -0.4718774  0.0602781 -0.27882403
+#&gt; thyroid  -0.3198858 -0.25667515 -0.3927585 -0.1099677 -0.1982593 -0.30577204
+#&gt;                 [,7]        [,8]       [,9]      [,10]       [,11]      [,12]
+#&gt; rhinitis 0.007792576 -0.37644473 -0.3138750  0.3557143 -0.51416886 -0.3412070
+#&gt; fever    0.076963730  0.47398373 -0.1881286 -0.3845451  0.22255196 -0.1492977
+#&gt; eye      0.210066229  0.07743389  0.2303022  0.3055896  0.10615164 -0.4167877
+#&gt; cough    0.184910148  0.03972149  0.1848222 -0.2018719 -0.06835073  0.2469166
+#&gt; thyroid  0.595368624  0.07119670 -0.4886357 -0.2866701  0.44623449  0.4581038
+#&gt;               [,13]      [,14]       [,15]      [,16]      [,17]       [,18]
+#&gt; rhinitis -0.2028870 -0.3904153  0.40231702  0.2416399  0.4606789 -0.03288249
+#&gt; fever     0.2209169 -0.3278761  0.23105943 -0.4386666  0.3729606  0.22700712
+#&gt; eye       0.3608328 -0.5008464 -0.32440433 -0.3991098 -0.3746073  0.24561949
+#&gt; cough    -0.2253334 -0.4899688  0.65946782  0.1671575 -0.1279265  0.01992054
+#&gt; thyroid  -0.1054286  0.2849355 -0.01434432 -0.2987033 -0.4297888  0.28123072
+#&gt;                [,19]      [,20]
+#&gt; rhinitis  0.25687197 -0.2266856
+#&gt; fever    -0.29701313 -0.2604249
+#&gt; eye      -0.01095858  0.4091393
+#&gt; cough     0.04424481  0.2936316
+#&gt; thyroid  -0.41973013 -0.4290855</div><div class='input'><span class='no'>inter_term_vectors</span> <span class='kw'>&lt;-</span> <span class='fu'>embed_terms</span>(<span class='no'>interviews</span>,
+  <span class='kw'>term_count_min</span> <span class='kw'>=</span> <span class='fl'>1L</span>, <span class='kw'>embedding_size</span> <span class='kw'>=</span> <span class='fl'>10L</span>)</div><div class='output co'>#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 1, expected cost 0.1702
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 2, expected cost 0.0983
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 3, expected cost 0.0628
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 4, expected cost 0.0421
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 5, expected cost 0.0293
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 6, expected cost 0.0209
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 7, expected cost 0.0154
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 8, expected cost 0.0116
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 9, expected cost 0.0088
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 10, expected cost 0.0069
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 11, expected cost 0.0054
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 12, expected cost 0.0042
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 13, expected cost 0.0033
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 14, expected cost 0.0027
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 15, expected cost 0.0021</div><div class='input'><span class='no'>inter_term_vectors</span></div><div class='output co'>#&gt;                  [,1]        [,2]       [,3]        [,4]        [,5]
+#&gt; rhinitis -0.645614147  0.13424267  0.3401625  0.01991771  0.02064945
+#&gt; fever    -0.448173195  0.42308888  0.2986616  0.04866217  0.41611040
+#&gt; eye       0.412424028  0.05080676 -0.3585052 -0.21960022 -0.14295699
+#&gt; cough     0.004778572  0.37880260  0.4175348 -0.47879818  0.16094504
+#&gt; thyroid  -0.072510757 -0.41520101 -0.3063732 -0.02529273  0.14760356
+#&gt;                 [,6]       [,7]       [,8]        [,9]      [,10]
+#&gt; rhinitis -0.28623471 0.07773291 -0.4102226 -0.13210674  0.3862955
+#&gt; fever     0.01898181 0.04344400  0.5006736 -0.04140102 -0.3289300
+#&gt; eye       0.32754484 0.12696545  0.1086702  0.15082309  0.4698192
+#&gt; cough    -0.44485381 0.45973492 -0.1266065 -0.17972128 -0.4084989
+#&gt; thyroid  -0.49164882 0.58162320  0.1666212 -0.30222037 -0.3539328</div><div class='input'><span class='no'>inter_term_vectors</span> <span class='kw'>&lt;-</span> <span class='fu'>embed_terms</span>(<span class='no'>interviews</span>, <span class='kw'>embedding_size</span> <span class='kw'>=</span> <span class='fl'>10L</span>,
+<span class='kw'>term_count_min</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>n_iter</span> <span class='kw'>=</span> <span class='fl'>50</span>, <span class='kw'>x_max</span> <span class='kw'>=</span> <span class='fl'>20</span>)</div><div class='output co'>#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 1, expected cost 0.1017
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 2, expected cost 0.0742
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 3, expected cost 0.0557
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 4, expected cost 0.0426
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 5, expected cost 0.0330
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 6, expected cost 0.0260
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 7, expected cost 0.0207
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 8, expected cost 0.0167
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 9, expected cost 0.0136
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 10, expected cost 0.0112
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 11, expected cost 0.0093
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 12, expected cost 0.0078
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 13, expected cost 0.0066
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 14, expected cost 0.0056
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 15, expected cost 0.0048
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 16, expected cost 0.0041
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 17, expected cost 0.0035
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 18, expected cost 0.0031
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 19, expected cost 0.0026
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 20, expected cost 0.0023
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 21, expected cost 0.0020
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 22, expected cost 0.0017
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 23, expected cost 0.0015
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 24, expected cost 0.0013
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 25, expected cost 0.0011
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 26, expected cost 0.0010
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 27, expected cost 0.0009
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 28, expected cost 0.0008
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 29, expected cost 0.0007
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 30, expected cost 0.0006
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 31, expected cost 0.0005
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 32, expected cost 0.0004
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 33, expected cost 0.0004
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 34, expected cost 0.0003
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 35, expected cost 0.0003
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 36, expected cost 0.0003
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 37, expected cost 0.0002
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 38, expected cost 0.0002
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 39, expected cost 0.0002
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 40, expected cost 0.0001
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 41, expected cost 0.0001
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 42, expected cost 0.0001
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 43, expected cost 0.0001
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 44, expected cost 0.0001
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 45, expected cost 0.0001
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 46, expected cost 0.0001
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 47, expected cost 0.0001
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 48, expected cost 0.0000
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 49, expected cost 0.0000
+#&gt; INFO [2020-05-29 09:12:05] 2020-05-29 09:12:05 - epoch 50, expected cost 0.0000</div><div class='input'><span class='no'>inter_term_vectors</span></div><div class='output co'>#&gt;                 [,1]        [,2]       [,3]        [,4]        [,5]        [,6]
+#&gt; rhinitis -0.67050707  0.13867655  0.3277615  0.02233971  0.01925492 -0.28101969
+#&gt; fever    -0.47414488  0.42163622  0.2778350  0.05659303  0.41992992  0.03656492
+#&gt; eye       0.40821281  0.05118845 -0.3679652 -0.21142292 -0.14411332  0.33907771
+#&gt; cough     0.01459016  0.38171476  0.4264528 -0.48475653  0.16025080 -0.45465448
+#&gt; thyroid  -0.05729657 -0.43905234 -0.2893760 -0.04121327  0.17619224 -0.53515190
+#&gt;                [,7]       [,8]        [,9]      [,10]
+#&gt; rhinitis 0.06809779 -0.4014279 -0.11618978  0.3936702
+#&gt; fever    0.02209128  0.5187209 -0.01806023 -0.3177628
+#&gt; eye      0.12524252  0.1099293  0.14726979  0.4759931
+#&gt; cough    0.47243899 -0.1336374 -0.19043200 -0.4138883
+#&gt; thyroid  0.59246510  0.1814606 -0.28704616 -0.3626533</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

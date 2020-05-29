@@ -155,16 +155,54 @@ the k-means algorithm.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>inter_term_vectors</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='embed_terms.html'>embed_terms</a></span>(<span class='no'>interview_1000</span>, <span class='kw'>embedding_size</span> <span class='kw'>=</span> <span class='fl'>10L</span>)</div><div class='output co'>#&gt; <span class='error'>Error in gsub(", ", ",", merged_terms): nie znaleziono obiektu 'interview_1000'</span></div><div class='input'><span class='no'>exam_term_vectors</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='embed_terms.html'>embed_terms</a></span>(<span class='no'>examination_1000</span>, <span class='kw'>embedding_size</span> <span class='kw'>=</span> <span class='fl'>10L</span>)</div><div class='output co'>#&gt; <span class='error'>Error in gsub(", ", ",", merged_terms): nie znaleziono obiektu 'examination_1000'</span></div><div class='input'><span class='no'>visits_vectors</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='embed_list_visits.html'>embed_list_visits</a></span>(<span class='no'>interview_1000</span>,
-  <span class='no'>examination_1000</span>, <span class='no'>inter_term_vectors</span>, <span class='no'>exam_term_vectors</span>)</div><div class='output co'>#&gt; <span class='error'>Error in unique(c(names(inter_descriptions), names(exam_descriptions))): nie znaleziono obiektu 'interview_1000'</span></div><div class='input'><span class='no'>clusters</span> <span class='kw'>&lt;-</span> <span class='fu'>cluster_visits</span>(<span class='no'>visits_vectors</span>, <span class='no'>visits_1000</span>,
-                           <span class='kw'>spec</span> <span class='kw'>=</span> <span class='st'>"medycyna rodzinna"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in cluster_visits(visits_vectors, visits_1000, spec = "medycyna rodzinna"): nie znaleziono obiektu 'visits_1000'</span></div><div class='input'><span class='no'>clusters</span>$<span class='no'>size</span></div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): nie znaleziono obiektu 'clusters'</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span>(<span class='no'>clusters</span>$<span class='no'>withinss</span>)</div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): nie znaleziono obiektu 'clusters'</span></div><div class='input'>
-<span class='no'>clusters</span> <span class='kw'>&lt;-</span> <span class='fu'>cluster_visits</span>(<span class='no'>visits_vectors</span>, <span class='no'>visits_1000</span>,
-                           <span class='kw'>spec</span> <span class='kw'>=</span> <span class='st'>"medycyna rodzinna"</span>,
-                           <span class='kw'>cluster_number</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt; <span class='error'>Error in cluster_visits(visits_vectors, visits_1000, spec = "medycyna rodzinna",     cluster_number = 2): nie znaleziono obiektu 'visits_1000'</span></div><div class='input'><span class='no'>clusters</span>$<span class='no'>centers</span></div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): nie znaleziono obiektu 'clusters'</span></div><div class='input'>
-<span class='no'>clusters</span> <span class='kw'>&lt;-</span> <span class='fu'>cluster_visits</span>(<span class='no'>visits_vectors</span>, <span class='no'>visits_1000</span>,
-                           <span class='kw'>spec</span> <span class='kw'>=</span> <span class='st'>"ortopedia"</span>,
-                           <span class='kw'>cluster_number</span> <span class='kw'>=</span> <span class='fl'>4</span>,
-                           <span class='kw'>nstart</span> <span class='kw'>=</span> <span class='fl'>20</span>, <span class='kw'>iter.max</span> <span class='kw'>=</span> <span class='fl'>10</span>)</div><div class='output co'>#&gt; <span class='error'>Error in cluster_visits(visits_vectors, visits_1000, spec = "ortopedia",     cluster_number = 4, nstart = 20, iter.max = 10): nie znaleziono obiektu 'visits_1000'</span></div><div class='input'><span class='no'>clusters</span>$<span class='no'>size</span></div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): nie znaleziono obiektu 'clusters'</span></div><div class='input'>
+    <pre class="examples"><div class='input'><span class='no'>inter_term_vectors</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='embed_terms.html'>embed_terms</a></span>(<span class='no'>interviews</span>, <span class='kw'>embedding_size</span> <span class='kw'>=</span> <span class='fl'>10L</span>,
+                                  <span class='kw'>term_count_min</span> <span class='kw'>=</span> <span class='fl'>1L</span>)</div><div class='output co'>#&gt; INFO [2020-05-29 09:12:03] 2020-05-29 09:12:03 - epoch 1, expected cost 0.1702
+#&gt; INFO [2020-05-29 09:12:03] 2020-05-29 09:12:03 - epoch 2, expected cost 0.0983
+#&gt; INFO [2020-05-29 09:12:03] 2020-05-29 09:12:03 - epoch 3, expected cost 0.0628
+#&gt; INFO [2020-05-29 09:12:03] 2020-05-29 09:12:03 - epoch 4, expected cost 0.0421
+#&gt; INFO [2020-05-29 09:12:03] 2020-05-29 09:12:03 - epoch 5, expected cost 0.0293
+#&gt; INFO [2020-05-29 09:12:03] 2020-05-29 09:12:03 - epoch 6, expected cost 0.0209
+#&gt; INFO [2020-05-29 09:12:03] 2020-05-29 09:12:03 - epoch 7, expected cost 0.0154
+#&gt; INFO [2020-05-29 09:12:03] 2020-05-29 09:12:03 - epoch 8, expected cost 0.0116
+#&gt; INFO [2020-05-29 09:12:03] 2020-05-29 09:12:03 - epoch 9, expected cost 0.0088
+#&gt; INFO [2020-05-29 09:12:03] 2020-05-29 09:12:03 - epoch 10, expected cost 0.0069
+#&gt; INFO [2020-05-29 09:12:03] 2020-05-29 09:12:03 - epoch 11, expected cost 0.0054
+#&gt; INFO [2020-05-29 09:12:03] 2020-05-29 09:12:03 - epoch 12, expected cost 0.0042
+#&gt; INFO [2020-05-29 09:12:03] 2020-05-29 09:12:03 - epoch 13, expected cost 0.0033
+#&gt; INFO [2020-05-29 09:12:03] 2020-05-29 09:12:03 - epoch 14, expected cost 0.0027
+#&gt; INFO [2020-05-29 09:12:03] 2020-05-29 09:12:03 - epoch 15, expected cost 0.0021</div><div class='input'><span class='no'>exam_term_vectors</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='embed_terms.html'>embed_terms</a></span>(<span class='no'>examinations</span>, <span class='kw'>embedding_size</span> <span class='kw'>=</span> <span class='fl'>10L</span>,
+                                 <span class='kw'>term_count_min</span> <span class='kw'>=</span> <span class='fl'>1L</span>)</div><div class='output co'>#&gt; INFO [2020-05-29 09:12:03] 2020-05-29 09:12:03 - epoch 1, expected cost 0.0729
+#&gt; INFO [2020-05-29 09:12:03] 2020-05-29 09:12:03 - epoch 2, expected cost 0.0370
+#&gt; INFO [2020-05-29 09:12:03] 2020-05-29 09:12:03 - epoch 3, expected cost 0.0243
+#&gt; INFO [2020-05-29 09:12:03] 2020-05-29 09:12:03 - epoch 4, expected cost 0.0180
+#&gt; INFO [2020-05-29 09:12:03] 2020-05-29 09:12:03 - epoch 5, expected cost 0.0142
+#&gt; INFO [2020-05-29 09:12:03] 2020-05-29 09:12:03 - epoch 6, expected cost 0.0118
+#&gt; INFO [2020-05-29 09:12:03] 2020-05-29 09:12:03 - epoch 7, expected cost 0.0100
+#&gt; INFO [2020-05-29 09:12:03] 2020-05-29 09:12:03 - epoch 8, expected cost 0.0087
+#&gt; INFO [2020-05-29 09:12:03] 2020-05-29 09:12:03 - epoch 9, expected cost 0.0076
+#&gt; INFO [2020-05-29 09:12:03] 2020-05-29 09:12:03 - epoch 10, expected cost 0.0068
+#&gt; INFO [2020-05-29 09:12:03] 2020-05-29 09:12:03 - epoch 11, expected cost 0.0061
+#&gt; INFO [2020-05-29 09:12:03] 2020-05-29 09:12:03 - epoch 12, expected cost 0.0054
+#&gt; INFO [2020-05-29 09:12:03] 2020-05-29 09:12:03 - epoch 13, expected cost 0.0049
+#&gt; INFO [2020-05-29 09:12:03] 2020-05-29 09:12:03 - epoch 14, expected cost 0.0044
+#&gt; INFO [2020-05-29 09:12:03] 2020-05-29 09:12:03 - epoch 15, expected cost 0.0040</div><div class='input'><span class='no'>visits_vectors</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='embed_list_visits.html'>embed_list_visits</a></span>(<span class='no'>interviews</span>,
+                                    <span class='no'>examinations</span>, <span class='no'>inter_term_vectors</span>, <span class='no'>exam_term_vectors</span>)
+<span class='no'>clusters</span> <span class='kw'>&lt;-</span> <span class='fu'>cluster_visits</span>(<span class='no'>visits_vectors</span>, <span class='no'>visits</span>,
+                           <span class='kw'>spec</span> <span class='kw'>=</span> <span class='st'>"internist"</span>,
+                           <span class='kw'>cluster_number</span> <span class='kw'>=</span> <span class='fl'>2L</span>)
+<span class='no'>clusters</span>$<span class='no'>size</span></div><div class='output co'>#&gt; [1] 2 3</div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span>(<span class='no'>clusters</span>$<span class='no'>withinss</span>)</div><div class='output co'>#&gt; [1] 0.7241415</div><div class='input'><span class='no'>clusters</span>$<span class='no'>centers</span></div><div class='output co'>#&gt;          [,1]         [,2]        [,3]        [,4]       [,5]       [,6]
+#&gt; 1 -0.14710403 -0.007127635  0.02586249 -0.12018036 0.21806564 -0.3522924
+#&gt; 2 -0.05078141  0.188806783 -0.02300495 -0.09025976 0.07066655  0.1223939
+#&gt;         [,7]      [,8]        [,9]      [,10]      [,11]      [,12]      [,13]
+#&gt; 1 0.41660633 0.1768274 -0.20639076 -0.3613236 0.03380221 0.09424853 0.01584504
+#&gt; 2 0.09091954 0.1528559  0.03959341  0.1896488 0.00101390 0.08596512 0.02388359
+#&gt;        [,14]       [,15]       [,16]       [,17]      [,18]        [,19]
+#&gt; 1 0.01171652 -0.02278555 -0.14028305 -0.09151199 0.08645096 -0.005689785
+#&gt; 2 0.01149532 -0.07888786 -0.06050346  0.02048131 0.08563412  0.006679272
+#&gt;        [,20]
+#&gt; 1 -0.1439474
+#&gt; 2 -0.1196416</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

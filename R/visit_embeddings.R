@@ -82,8 +82,7 @@ embed_visit <- function(visit_description, inter_term_vectors, exam_term_vectors
 #' Generate embeddings of given visits, contained in two named vectors. One
 #' vector contains the descriptions of interviews and the second -- the
 #' descriptions of examinations. This function interatively calls
-#' \link{embed_visit} function. This function on about 100k visits should
-#' take about 4 minutes on i7-7700HQ CPU.
+#' \link{embed_visit} function.
 #'
 #' @param inter_descriptions A vector of descriptions of interviews, named by visits' IDs;
 #' terms in the descriptions are separated by ", "

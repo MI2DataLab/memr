@@ -82,7 +82,7 @@
 <li>text2vec</li>
 </ul>
 <p>To install <code>memr</code>, simply type in an R console (after having installed the <code>devtools</code> package, e.g. <code>install.package('devtools')</code>):</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">devtools<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/devtools/man/remote-reexports.html">install_git</a></span>(<span class="st">"https://github.com/adamgdobrakowski/memr"</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">devtools<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/devtools/man/remote-reexports.html">install_git</a></span>(<span class="st">"https://github.com/MI2DataLab/memr"</span>)</code></pre></div>
 </div>
 <div id="usage" class="section level2">
 <h2 class="hasAnchor">
@@ -402,74 +402,84 @@
 <h3 class="hasAnchor">
 <a href="#medical-terms-embeddings" class="anchor"></a>Medical terms embeddings</h3>
 <p>Firstly we can compute embeddings:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">embedding_size &lt;-<span class="st"> </span><span class="dv">3</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">embedding_size &lt;-<span class="st"> </span><span class="dv">5</span>
 
 interview_term_vectors &lt;-<span class="st"> </span><span class="kw"><a href="reference/embed_terms.html">embed_terms</a></span>(<span class="dt">merged_terms =</span> interviews, <span class="dt">embedding_size =</span> embedding_size,
                                        <span class="dt">term_count_min =</span> 1L)
-<span class="co">#&gt; INFO [2020-02-08 11:32:48] 2020-02-08 11:32:48 - epoch 1, expected cost 0.1679</span>
-<span class="co">#&gt; INFO [2020-02-08 11:32:48] 2020-02-08 11:32:48 - epoch 2, expected cost 0.1195</span>
-<span class="co">#&gt; INFO [2020-02-08 11:32:48] 2020-02-08 11:32:48 - epoch 3, expected cost 0.0929</span>
-<span class="co">#&gt; INFO [2020-02-08 11:32:48] 2020-02-08 11:32:48 - epoch 4, expected cost 0.0753</span>
-<span class="co">#&gt; INFO [2020-02-08 11:32:48] 2020-02-08 11:32:48 - epoch 5, expected cost 0.0627</span>
-<span class="co">#&gt; INFO [2020-02-08 11:32:48] 2020-02-08 11:32:48 - epoch 6, expected cost 0.0532</span>
-<span class="co">#&gt; INFO [2020-02-08 11:32:48] 2020-02-08 11:32:48 - epoch 7, expected cost 0.0458</span>
-<span class="co">#&gt; INFO [2020-02-08 11:32:48] 2020-02-08 11:32:48 - epoch 8, expected cost 0.0398</span>
-<span class="co">#&gt; INFO [2020-02-08 11:32:48] 2020-02-08 11:32:48 - epoch 9, expected cost 0.0350</span>
-<span class="co">#&gt; INFO [2020-02-08 11:32:48] 2020-02-08 11:32:48 - epoch 10, expected cost 0.0309</span>
-<span class="co">#&gt; INFO [2020-02-08 11:32:48] 2020-02-08 11:32:48 - epoch 11, expected cost 0.0275</span>
-<span class="co">#&gt; INFO [2020-02-08 11:32:48] 2020-02-08 11:32:48 - epoch 12, expected cost 0.0246</span>
-<span class="co">#&gt; INFO [2020-02-08 11:32:48] 2020-02-08 11:32:48 - epoch 13, expected cost 0.0221</span>
-<span class="co">#&gt; INFO [2020-02-08 11:32:48] 2020-02-08 11:32:48 - epoch 14, expected cost 0.0199</span>
-<span class="co">#&gt; INFO [2020-02-08 11:32:48] 2020-02-08 11:32:48 - epoch 15, expected cost 0.0179</span>
+<span class="co">#&gt; INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 1, expected cost 0.1305</span>
+<span class="co">#&gt; INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 2, expected cost 0.0852</span>
+<span class="co">#&gt; INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 3, expected cost 0.0592</span>
+<span class="co">#&gt; INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 4, expected cost 0.0426</span>
+<span class="co">#&gt; INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 5, expected cost 0.0314</span>
+<span class="co">#&gt; INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 6, expected cost 0.0235</span>
+<span class="co">#&gt; INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 7, expected cost 0.0180</span>
+<span class="co">#&gt; INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 8, expected cost 0.0139</span>
+<span class="co">#&gt; INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 9, expected cost 0.0109</span>
+<span class="co">#&gt; INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 10, expected cost 0.0087</span>
+<span class="co">#&gt; INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 11, expected cost 0.0070</span>
+<span class="co">#&gt; INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 12, expected cost 0.0057</span>
+<span class="co">#&gt; INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 13, expected cost 0.0047</span>
+<span class="co">#&gt; INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 14, expected cost 0.0039</span>
+<span class="co">#&gt; INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 15, expected cost 0.0033</span>
 examination_term_vectors &lt;-<span class="st"> </span><span class="kw"><a href="reference/embed_terms.html">embed_terms</a></span>(<span class="dt">merged_terms =</span> examinations, <span class="dt">embedding_size =</span> embedding_size,
                                          <span class="dt">term_count_min =</span> 1L)
-<span class="co">#&gt; INFO [2020-02-08 11:32:48] 2020-02-08 11:32:48 - epoch 1, expected cost 0.0596</span>
-<span class="co">#&gt; INFO [2020-02-08 11:32:48] 2020-02-08 11:32:48 - epoch 2, expected cost 0.0338</span>
-<span class="co">#&gt; INFO [2020-02-08 11:32:48] 2020-02-08 11:32:48 - epoch 3, expected cost 0.0242</span>
-<span class="co">#&gt; INFO [2020-02-08 11:32:48] 2020-02-08 11:32:48 - epoch 4, expected cost 0.0194</span>
-<span class="co">#&gt; INFO [2020-02-08 11:32:48] 2020-02-08 11:32:48 - epoch 5, expected cost 0.0165</span>
-<span class="co">#&gt; INFO [2020-02-08 11:32:48] 2020-02-08 11:32:48 - epoch 6, expected cost 0.0147</span>
-<span class="co">#&gt; INFO [2020-02-08 11:32:48] 2020-02-08 11:32:48 - epoch 7, expected cost 0.0133</span>
-<span class="co">#&gt; INFO [2020-02-08 11:32:48] 2020-02-08 11:32:48 - epoch 8, expected cost 0.0123</span>
-<span class="co">#&gt; INFO [2020-02-08 11:32:48] 2020-02-08 11:32:48 - epoch 9, expected cost 0.0115</span>
-<span class="co">#&gt; INFO [2020-02-08 11:32:48] 2020-02-08 11:32:48 - epoch 10, expected cost 0.0108</span>
-<span class="co">#&gt; INFO [2020-02-08 11:32:48] 2020-02-08 11:32:48 - epoch 11, expected cost 0.0102</span>
-<span class="co">#&gt; INFO [2020-02-08 11:32:48] 2020-02-08 11:32:48 - epoch 12, expected cost 0.0097</span>
-<span class="co">#&gt; INFO [2020-02-08 11:32:48] 2020-02-08 11:32:48 - epoch 13, expected cost 0.0093</span>
-<span class="co">#&gt; INFO [2020-02-08 11:32:48] 2020-02-08 11:32:48 - epoch 14, expected cost 0.0089</span>
-<span class="co">#&gt; INFO [2020-02-08 11:32:48] 2020-02-08 11:32:48 - epoch 15, expected cost 0.0086</span>
+<span class="co">#&gt; INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 1, expected cost 0.1059</span>
+<span class="co">#&gt; INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 2, expected cost 0.0510</span>
+<span class="co">#&gt; INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 3, expected cost 0.0315</span>
+<span class="co">#&gt; INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 4, expected cost 0.0225</span>
+<span class="co">#&gt; INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 5, expected cost 0.0178</span>
+<span class="co">#&gt; INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 6, expected cost 0.0149</span>
+<span class="co">#&gt; INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 7, expected cost 0.0131</span>
+<span class="co">#&gt; INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 8, expected cost 0.0117</span>
+<span class="co">#&gt; INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 9, expected cost 0.0107</span>
+<span class="co">#&gt; INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 10, expected cost 0.0099</span>
+<span class="co">#&gt; INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 11, expected cost 0.0093</span>
+<span class="co">#&gt; INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 12, expected cost 0.0087</span>
+<span class="co">#&gt; INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 13, expected cost 0.0082</span>
+<span class="co">#&gt; INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 14, expected cost 0.0078</span>
+<span class="co">#&gt; INFO [2020-03-18 11:43:54] 2020-03-18 11:43:54 - epoch 15, expected cost 0.0074</span>
 
 knitr<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span>(interview_term_vectors[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, ])</code></pre></div>
 <table class="table"><tbody>
 <tr class="odd">
 <td align="left">rhinitis</td>
-<td align="right">-0.4591842</td>
-<td align="right">0.0773042</td>
-<td align="right">0.3169519</td>
+<td align="right">-0.4704351</td>
+<td align="right">0.0315635</td>
+<td align="right">0.5707754</td>
+<td align="right">0.2680295</td>
+<td align="right">0.2400996</td>
 </tr>
 <tr class="even">
 <td align="left">fever</td>
-<td align="right">-0.3166999</td>
-<td align="right">0.4445915</td>
-<td align="right">0.2889484</td>
+<td align="right">-0.3948241</td>
+<td align="right">0.3853350</td>
+<td align="right">0.5458298</td>
+<td align="right">0.2350670</td>
+<td align="right">0.4494087</td>
 </tr>
 <tr class="odd">
 <td align="left">eye</td>
-<td align="right">0.6172635</td>
-<td align="right">-0.0026380</td>
-<td align="right">-0.2859116</td>
+<td align="right">0.4959916</td>
+<td align="right">0.0223423</td>
+<td align="right">-0.3431036</td>
+<td align="right">-0.2673065</td>
+<td align="right">-0.2371423</td>
 </tr>
 <tr class="even">
 <td align="left">cough</td>
-<td align="right">-0.3053243</td>
-<td align="right">0.1688631</td>
-<td align="right">0.6479924</td>
+<td align="right">-0.0089209</td>
+<td align="right">0.3737412</td>
+<td align="right">0.0054367</td>
+<td align="right">-0.6043935</td>
+<td align="right">0.4064513</td>
 </tr>
 <tr class="odd">
 <td align="left">thyroid</td>
-<td align="right">-0.2251053</td>
-<td align="right">-0.4781070</td>
-<td align="right">-0.1793006</td>
+<td align="right">-0.1455389</td>
+<td align="right">-0.2107478</td>
+<td align="right">-0.2871478</td>
+<td align="right">-0.3121039</td>
+<td align="right">-0.2287994</td>
 </tr>
 </tbody></table>
 <p>Terms from the chosen category can be visualized:</p>
@@ -491,38 +501,38 @@ knitr<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/kni
 <tr class="odd">
 <td>person</td>
 <td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
 <td align="right">0.5000000</td>
-<td align="right">1.0000000</td>
-<td align="right">1.0000000</td>
-<td align="right">1.0000000</td>
-<td align="right">0.7000000</td>
+<td align="right">0.1000000</td>
 </tr>
 <tr class="even">
 <td>spec</td>
 <td align="right">0</td>
-<td align="right">0.0000000</td>
-<td align="right">0.0000000</td>
-<td align="right">0.0000000</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
 <td align="right">0.0000000</td>
 <td align="right">0.0000000</td>
 </tr>
 <tr class="odd">
 <td>synonym</td>
 <td align="right">0</td>
-<td align="right">0.0000000</td>
-<td align="right">0.0000000</td>
-<td align="right">0.0000000</td>
-<td align="right">0.0000000</td>
-<td align="right">0.0000000</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0.5000000</td>
+<td align="right">0.1000000</td>
 </tr>
 <tr class="even">
 <td>MEAN</td>
 <td align="right">0</td>
-<td align="right">0.1666667</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
 <td align="right">0.3333333</td>
-<td align="right">0.3333333</td>
-<td align="right">0.3333333</td>
-<td align="right">0.2333333</td>
+<td align="right">0.0666667</td>
 </tr>
 </tbody>
 </table>
@@ -537,53 +547,88 @@ knitr<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/kni
 <p>Having the embeddings of terms, we can compute embeddings of visits:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">visits_vectors &lt;-<span class="st"> </span><span class="kw"><a href="reference/embed_list_visits.html">embed_list_visits</a></span>(interviews, examinations, interview_term_vectors, examination_term_vectors)
 knitr<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span>(visits_vectors[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, ])</code></pre></div>
-<table class="table"><tbody>
+<table class="table">
+<colgroup>
+<col width="4%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+</colgroup>
+<tbody>
 <tr class="odd">
 <td align="left">101</td>
-<td align="right">0.1502818</td>
-<td align="right">0.2209768</td>
-<td align="right">0.0015184</td>
+<td align="right">0.0505837</td>
+<td align="right">0.2038387</td>
+<td align="right">0.1013631</td>
+<td align="right">-0.0161198</td>
+<td align="right">0.1061332</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
 <td align="right">NA</td>
 <td align="right">NA</td>
 <td align="right">NA</td>
 </tr>
 <tr class="even">
 <td align="left">102</td>
-<td align="right">-0.2652148</td>
-<td align="right">-0.1546220</td>
-<td align="right">0.2343459</td>
-<td align="right">0.0315736</td>
-<td align="right">-0.1512805</td>
-<td align="right">-0.0030038</td>
+<td align="right">-0.0772299</td>
+<td align="right">0.0814967</td>
+<td align="right">-0.1408555</td>
+<td align="right">-0.4582487</td>
+<td align="right">0.0888259</td>
+<td align="right">0.1106313</td>
+<td align="right">-0.1679365</td>
+<td align="right">-0.0600053</td>
+<td align="right">0.1011591</td>
+<td align="right">0.0932502</td>
 </tr>
 <tr class="odd">
 <td align="left">103</td>
-<td align="right">-0.2709026</td>
-<td align="right">-0.0167577</td>
-<td align="right">0.0548239</td>
-<td align="right">-0.0211255</td>
-<td align="right">0.0591052</td>
-<td align="right">0.0587511</td>
+<td align="right">-0.2701815</td>
+<td align="right">0.0872936</td>
+<td align="right">0.1293410</td>
+<td align="right">-0.0385184</td>
+<td align="right">0.1103047</td>
+<td align="right">0.1915759</td>
+<td align="right">0.1393210</td>
+<td align="right">-0.0021371</td>
+<td align="right">0.0500974</td>
+<td align="right">0.1605039</td>
 </tr>
 <tr class="even">
 <td align="left">104</td>
-<td align="right">0.1502818</td>
-<td align="right">0.2209768</td>
-<td align="right">0.0015184</td>
-<td align="right">0.0436967</td>
-<td align="right">0.0468291</td>
-<td align="right">-0.0488440</td>
+<td align="right">0.0505837</td>
+<td align="right">0.2038387</td>
+<td align="right">0.1013631</td>
+<td align="right">-0.0161198</td>
+<td align="right">0.1061332</td>
+<td align="right">0.1695910</td>
+<td align="right">0.1284853</td>
+<td align="right">0.0011363</td>
+<td align="right">-0.0126280</td>
+<td align="right">-0.0033302</td>
 </tr>
 <tr class="odd">
 <td align="left">105</td>
-<td align="right">-0.2652148</td>
-<td align="right">-0.1546220</td>
-<td align="right">0.2343459</td>
-<td align="right">-0.0186915</td>
-<td align="right">-0.1348312</td>
-<td align="right">0.0672795</td>
+<td align="right">-0.0772299</td>
+<td align="right">0.0814967</td>
+<td align="right">-0.1408555</td>
+<td align="right">-0.4582487</td>
+<td align="right">0.0888259</td>
+<td align="right">0.0037491</td>
+<td align="right">-0.0883031</td>
+<td align="right">-0.0408950</td>
+<td align="right">0.1075936</td>
+<td align="right">0.0625818</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>And now we can visualize the visits on the plot and color by the doctors’ IDs:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/visualize_visit_embeddings.html">visualize_visit_embeddings</a></span>(visits_vectors, visits, <span class="dt">color_by =</span> <span class="st">"doctor"</span>,
                                 <span class="dt">spec =</span> <span class="st">"internist"</span>)</code></pre></div>
@@ -606,24 +651,21 @@ knitr<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/kni
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rec_tables &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_cluster_recommendations.html">get_cluster_recommendations</a></span>(recommendations, clusters,
                                           <span class="dt">category =</span> <span class="st">"recommendation"</span>,
                                           <span class="dt">recom_table =</span> terms_categories)
-knitr<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span>(rec_tables)</code></pre></div>
-<table class="table kable_wrapper"><tbody><tr>
-<td>
-| recommendation |  count|  frequency|
-|:---------------|------:|----------:|
-| hospital       |      2|  0.6666667|
-| sleep          |      1|  0.3333333|
-| treatment      |      1|  0.3333333|
-
-</td>
-<td>
-| recommendation |  count|  frequency|
-|:---------------|------:|----------:|
-| hospital       |      2|        1.0|
-| treatment      |      1|        0.5|
-
-</td>
-</tr></tbody></table>
+rec_tables
+<span class="co">#&gt; [[1]]</span>
+<span class="co">#&gt; # A tibble: 3 x 3</span>
+<span class="co">#&gt;   recommendation count frequency</span>
+<span class="co">#&gt;   &lt;fct&gt;          &lt;int&gt;     &lt;dbl&gt;</span>
+<span class="co">#&gt; 1 hospital           3      0.75</span>
+<span class="co">#&gt; 2 sleep              1      0.25</span>
+<span class="co">#&gt; 3 treatment          1      0.25</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; [[2]]</span>
+<span class="co">#&gt; # A tibble: 2 x 3</span>
+<span class="co">#&gt;   recommendation count frequency</span>
+<span class="co">#&gt;   &lt;fct&gt;          &lt;int&gt;     &lt;dbl&gt;</span>
+<span class="co">#&gt; 1 hospital           1         1</span>
+<span class="co">#&gt; 2 treatment          1         1</span></code></pre></div>
 <p>or from all categories:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rec_tables &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_cluster_recommendations.html">get_cluster_recommendations</a></span>(recommendations, clusters, <span class="dt">category =</span> <span class="st">"all"</span>)
 rec_tables
@@ -631,20 +673,19 @@ rec_tables
 <span class="co">#&gt; # A tibble: 5 x 3</span>
 <span class="co">#&gt;   recommendation  count frequency</span>
 <span class="co">#&gt;   &lt;fct&gt;           &lt;int&gt;     &lt;dbl&gt;</span>
-<span class="co">#&gt; 1 hospital            2     0.667</span>
-<span class="co">#&gt; 2 endocrinologist     1     0.333</span>
-<span class="co">#&gt; 3 internist           1     0.333</span>
-<span class="co">#&gt; 4 sleep               1     0.333</span>
-<span class="co">#&gt; 5 treatment           1     0.333</span>
+<span class="co">#&gt; 1 hospital            3      0.75</span>
+<span class="co">#&gt; 2 endocrinologist     2      0.5 </span>
+<span class="co">#&gt; 3 internist           1      0.25</span>
+<span class="co">#&gt; 4 sleep               1      0.25</span>
+<span class="co">#&gt; 5 treatment           1      0.25</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; [[2]]</span>
-<span class="co">#&gt; # A tibble: 4 x 3</span>
+<span class="co">#&gt; # A tibble: 3 x 3</span>
 <span class="co">#&gt;   recommendation  count frequency</span>
 <span class="co">#&gt;   &lt;fct&gt;           &lt;int&gt;     &lt;dbl&gt;</span>
-<span class="co">#&gt; 1 hospital            2       1  </span>
-<span class="co">#&gt; 2 endocrinologist     1       0.5</span>
-<span class="co">#&gt; 3 ophthalmologist     1       0.5</span>
-<span class="co">#&gt; 4 treatment           1       0.5</span></code></pre></div>
+<span class="co">#&gt; 1 hospital            1         1</span>
+<span class="co">#&gt; 2 ophthalmologist     1         1</span>
+<span class="co">#&gt; 3 treatment           1         1</span></code></pre></div>
 <p>If we have a new visit, we can assign it to the most appropriate cluster:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">inter_descr &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/paste.html">paste</a></span>(<span class="st">"cough"</span>, <span class="dt">sep =</span> <span class="st">", "</span>)
 exam_descr &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/paste.html">paste</a></span>(<span class="st">"fever"</span>, <span class="dt">sep =</span> <span class="st">", "</span>)
@@ -653,12 +694,12 @@ visit_description &lt;-<span class="st"> </span><span class="kw"><a href="https:
 cl &lt;-<span class="st"> </span><span class="kw"><a href="reference/assign_visit_to_cluster.html">assign_visit_to_cluster</a></span>(visit_description, clusters, interview_term_vectors, examination_term_vectors)
 cl
 <span class="co">#&gt; $cl</span>
-<span class="co">#&gt; 2 </span>
-<span class="co">#&gt; 2 </span>
+<span class="co">#&gt; 1 </span>
+<span class="co">#&gt; 1 </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $distances</span>
-<span class="co">#&gt;         1         2 </span>
-<span class="co">#&gt; 0.1641233 0.1238790</span></code></pre></div>
+<span class="co">#&gt;          1          2 </span>
+<span class="co">#&gt; 0.07533538 0.24136356</span></code></pre></div>
 <p>As the last nice thing we can see the embeddings of ICD-10 codes:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/visualize_icd10.html">visualize_icd10</a></span>(visits_vectors, visits)</code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-20-1.png"></p>
@@ -673,7 +714,7 @@ cl
 <div id="references" class="section level1">
 <h1 class="hasAnchor">
 <a href="#references" class="anchor"></a>References</h1>
-<p>Dobrakowski, Adam, Agnieszka Mykowiecka, Małgorzata Marciniak, Wojciech Jaworski, and Przemysław Biecek. 2019. “Interpretable Segmentation of Medical Free-Text Records Based on Word Embeddings.” <em>arXiv Preprint arXiv:1907.04152</em>.</p>
+<p>Dobrakowski, Adam, Agnieszka Mykowiecka, Małgorzata Marciniak, Wojciech Jaworski, and Przemysław Biecek. 2019. “Interpretable Segmentation of Medical Free-Text Records Based on Word Embeddings.” <em>arXiv Preprint arXiv:1907.04152</em>. <a href="https://arxiv.org/abs/1907.04152" class="uri">https://arxiv.org/abs/1907.04152</a>.</p>
 </div>
 
   </div>
