@@ -40,3 +40,6 @@ embed_visit(c(inter = "", exam = "objaw chorobowy"),
            inter_term_vectors, exam_term_vectors)
 
 }
+\seealso{
+\code{\link{embed_description}}, \code{\link{embed_list_visits}}
+}

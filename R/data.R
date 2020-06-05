@@ -50,6 +50,8 @@
 #' @references Dobrakowski, A., A. Mykowiecka, M. Marciniak, W. Jaworski, and P. Biecek 2019.
 #' Interpretable Segmentation of Medical Free-Text
 #' Records Based on Word Embeddings. arXiv preprint arXiv:1907.04152.
+#'
+#' @seealso \code{\link{examinations}}, \code{\link{recommendations}}
 "interviews"
 
 #' Descriptions of Examinations of Patients
@@ -68,6 +70,8 @@
 #' @references Dobrakowski, A., A. Mykowiecka, M. Marciniak, W. Jaworski, and P. Biecek 2019.
 #' Interpretable Segmentation of Medical Free-Text
 #' Records Based on Word Embeddings. arXiv preprint arXiv:1907.04152.
+#'
+#' @seealso \code{\link{interviews}}, \code{\link{recommendations}}
 "examinations"
 
 #' Descriptions of Recommendations Prescribed to Patients
@@ -86,6 +90,8 @@
 #' @references Dobrakowski, A., A. Mykowiecka, M. Marciniak, W. Jaworski, and P. Biecek 2019.
 #' Interpretable Segmentation of Medical Free-Text
 #' Records Based on Word Embeddings. arXiv preprint arXiv:1907.04152.
+#'
+#' @seealso \code{\link{interviews}}, \code{\link{examinations}}
 "recommendations"
 
 #' Test Pairs of Terms to Evaluate Embedding Quality

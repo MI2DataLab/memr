@@ -33,3 +33,6 @@ synonym_task(term_vectors, 1, terms)
 synonym_task(term_vectors, 5, terms)
 
 }
+\seealso{
+\code{\link{analogy_task}}
+}

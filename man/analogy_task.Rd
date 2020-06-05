@@ -44,3 +44,6 @@ Tomas Mikolov, Kai Chen, Greg Corrado, and Jeffrey Dean. 2013.
  Efficient estimation of word representations in vector space.
  arXiv preprint arXiv:1301.3781.
 }
+\seealso{
+\code{\link{synonym_task}}
+}

@@ -58,6 +58,8 @@
 #'  Efficient estimation of word representations in vector space.
 #'  arXiv preprint arXiv:1301.3781.
 #'
+#' @seealso \code{\link{synonym_task}}
+#'
 #' @export
 analogy_task <- function(term_vectors, n = 1, terms) {
   terms <- .choose_embedded_pairs(term_vectors, terms)
@@ -122,6 +124,8 @@ analogy_task <- function(term_vectors, n = 1, terms) {
 #' synonym_task(term_vectors, 1, terms)
 #' synonym_task(term_vectors, 5, terms)
 #'
+#' @seealso \code{\link{analogy_task}}
+#'
 #' @export
 synonym_task <- function(term_vectors, n = 1, terms) {
   terms <- .choose_embedded_pairs(term_vectors, terms)
@@ -175,6 +179,8 @@ synonym_task <- function(term_vectors, n = 1, terms) {
 #' term_vectors <- embed_terms(examinations, embedding_size = 5L,
 #'   term_count_min = 1L)
 #' evaluate_term_embeddings(term_vectors, terms_pairs = terms_pairs_test)
+#'
+#' @seealso \code{\link{analogy_task}}, \code{\link{synonym_task}}, \code{\link{terms_pairs_test}}
 #'
 #' @export
 evaluate_term_embeddings <- function(term_vectors, terms_pairs = NULL, n_max = 5L) {
@@ -237,6 +243,8 @@ evaluate_term_embeddings <- function(term_vectors, terms_pairs = NULL, n_max = 5
 #' visualize_analogies(term_vectors, terms_pairs_test$person)
 #' visualize_analogies(term_vectors, terms_pairs_test$person,
 #'   find_analogies = TRUE, n = 10)
+#'
+#' @seealso \code{\link{analogy_task}}, \code{\link{evaluate_term_embeddings}}, \code{\link{terms_pairs_test}}
 #'
 #' @export
 visualize_analogies <- function(term_vectors, terms, find_analogies = FALSE, n = 5L,

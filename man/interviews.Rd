@@ -24,4 +24,7 @@ Dobrakowski, A., A. Mykowiecka, M. Marciniak, W. Jaworski, and P. Biecek 2019.
 Interpretable Segmentation of Medical Free-Text
 Records Based on Word Embeddings. arXiv preprint arXiv:1907.04152.
 }
+\seealso{
+\code{\link{examinations}}, \code{\link{recommendations}}
+}
 \keyword{datasets}

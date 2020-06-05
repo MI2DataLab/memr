@@ -21,7 +21,7 @@ A data frame of accuracies of the analogy task and the synonym task
 for each given list of pairs for the context from 1 to \code{n_max}.
 }
 \description{
-Evaluate the given term embeddings based on \link{analogy_task} and \link{synonym_task}.
+Evaluate given term embeddings based on \link{analogy_task} and \link{synonym_task}.
 The list of test pairs should be given. The \link{analogy_task} is performed
 for each type of given analogies (initially, there are 7 proposed types of analogies,
 see \link{terms_pairs_test}). The accuracy is measured for the context size from 1 (the most
@@ -32,4 +32,7 @@ term_vectors <- embed_terms(examinations, embedding_size = 5L,
   term_count_min = 1L)
 evaluate_term_embeddings(term_vectors, terms_pairs = terms_pairs_test)
 
+}
+\seealso{
+\code{\link{analogy_task}}, \code{\link{synonym_task}}, \code{\link{terms_pairs_test}}
 }

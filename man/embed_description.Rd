@@ -30,3 +30,6 @@ embed_description("fever, cough, temperature",
 embed_description("temperature", term_vectors)
 
 }
+\seealso{
+\code{\link{embed_visit}}, \code{\link{embed_list_visits}}
+}

@@ -19,6 +19,8 @@
 #'                   term_vectors)
 #' embed_description("temperature", term_vectors)
 #'
+#' @seealso \code{\link{embed_visit}}, \code{\link{embed_list_visits}}
+#'
 #' @export
 embed_description <- function(description, term_vectors) {
   embedding_size <- ncol(term_vectors)
@@ -65,6 +67,8 @@ embed_description <- function(description, term_vectors) {
 #'            inter_term_vectors, exam_term_vectors)
 #' embed_visit(c(inter = "", exam = "objaw chorobowy"),
 #'            inter_term_vectors, exam_term_vectors)
+#'
+#' @seealso \code{\link{embed_description}}, \code{\link{embed_list_visits}}
 #'
 #' @export
 embed_visit <- function(visit_description, inter_term_vectors, exam_term_vectors) {
@@ -115,6 +119,8 @@ embed_visit <- function(visit_description, inter_term_vectors, exam_term_vectors
 #'   inter_term_vectors, exam_term_vectors)
 #' nrow(visits_vectors)
 #' visits_vectors
+#'
+#' @seealso \code{\link{embed_visit}}, \code{\link{embed_description}}
 #'
 #' @export
 embed_list_visits <- function(inter_descriptions, exam_descriptions,

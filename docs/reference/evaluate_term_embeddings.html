@@ -34,7 +34,7 @@
 
 <meta property="og:title" content="Evaluate Term Embeddings — evaluate_term_embeddings" />
 
-<meta property="og:description" content="Evaluate the given term embeddings based on analogy_task and synonym_task.
+<meta property="og:description" content="Evaluate given term embeddings based on analogy_task and synonym_task.
 The list of test pairs should be given. The analogy_task is performed
 for each type of given analogies (initially, there are 7 proposed types of analogies,
 see terms_pairs_test). The accuracy is measured for the context size from 1 (the most
@@ -109,7 +109,7 @@ restrictive) to the given n_max." />
 
     <div class="ref-description">
     
-    <p>Evaluate the given term embeddings based on <a href='analogy_task.html'>analogy_task</a> and <a href='synonym_task.html'>synonym_task</a>.
+    <p>Evaluate given term embeddings based on <a href='analogy_task.html'>analogy_task</a> and <a href='synonym_task.html'>synonym_task</a>.
 The list of test pairs should be given. The <a href='analogy_task.html'>analogy_task</a> is performed
 for each type of given analogies (initially, there are 7 proposed types of analogies,
 see <a href='terms_pairs_test.html'>terms_pairs_test</a>). The accuracy is measured for the context size from 1 (the most
@@ -144,24 +144,28 @@ is performed <a href='analogy_task.html'>analogy_task</a></p></td>
     <p>A data frame of accuracies of the analogy task and the synonym task
 for each given list of pairs for the context from 1 to <code>n_max</code>.</p>
     
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code><a href='analogy_task.html'>analogy_task</a></code>, <code><a href='synonym_task.html'>synonym_task</a></code>, <code><a href='terms_pairs_test.html'>terms_pairs_test</a></code></p></div>
+    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>term_vectors</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='embed_terms.html'>embed_terms</a></span>(<span class='no'>examinations</span>, <span class='kw'>embedding_size</span> <span class='kw'>=</span> <span class='fl'>5L</span>,
-  <span class='kw'>term_count_min</span> <span class='kw'>=</span> <span class='fl'>1L</span>)</div><div class='output co'>#&gt; INFO [2020-05-29 09:12:06] 2020-05-29 09:12:06 - epoch 1, expected cost 0.1059
-#&gt; INFO [2020-05-29 09:12:06] 2020-05-29 09:12:06 - epoch 2, expected cost 0.0510
-#&gt; INFO [2020-05-29 09:12:06] 2020-05-29 09:12:06 - epoch 3, expected cost 0.0315
-#&gt; INFO [2020-05-29 09:12:06] 2020-05-29 09:12:06 - epoch 4, expected cost 0.0225
-#&gt; INFO [2020-05-29 09:12:06] 2020-05-29 09:12:06 - epoch 5, expected cost 0.0178
-#&gt; INFO [2020-05-29 09:12:06] 2020-05-29 09:12:06 - epoch 6, expected cost 0.0149
-#&gt; INFO [2020-05-29 09:12:06] 2020-05-29 09:12:06 - epoch 7, expected cost 0.0131
-#&gt; INFO [2020-05-29 09:12:06] 2020-05-29 09:12:06 - epoch 8, expected cost 0.0117
-#&gt; INFO [2020-05-29 09:12:06] 2020-05-29 09:12:06 - epoch 9, expected cost 0.0107
-#&gt; INFO [2020-05-29 09:12:06] 2020-05-29 09:12:06 - epoch 10, expected cost 0.0099
-#&gt; INFO [2020-05-29 09:12:06] 2020-05-29 09:12:06 - epoch 11, expected cost 0.0093
-#&gt; INFO [2020-05-29 09:12:06] 2020-05-29 09:12:06 - epoch 12, expected cost 0.0087
-#&gt; INFO [2020-05-29 09:12:06] 2020-05-29 09:12:06 - epoch 13, expected cost 0.0082
-#&gt; INFO [2020-05-29 09:12:06] 2020-05-29 09:12:06 - epoch 14, expected cost 0.0078
-#&gt; INFO [2020-05-29 09:12:06] 2020-05-29 09:12:06 - epoch 15, expected cost 0.0074</div><div class='input'><span class='fu'>evaluate_term_embeddings</span>(<span class='no'>term_vectors</span>, <span class='kw'>terms_pairs</span> <span class='kw'>=</span> <span class='no'>terms_pairs_test</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Given terms have not got embeddings, NULL will be returned.</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Given terms have not got embeddings, NULL will be returned.</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Given terms have not got embeddings, NULL will be returned.</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Given terms have not got embeddings, NULL will be returned.</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Given terms have not got embeddings, NULL will be returned.</span></div><div class='output co'>#&gt;         1 2 3 4         5       MEAN
+  <span class='kw'>term_count_min</span> <span class='kw'>=</span> <span class='fl'>1L</span>)</div><div class='output co'>#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 1, expected cost 0.1059
+#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 2, expected cost 0.0510
+#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 3, expected cost 0.0315
+#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 4, expected cost 0.0225
+#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 5, expected cost 0.0178
+#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 6, expected cost 0.0149
+#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 7, expected cost 0.0131
+#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 8, expected cost 0.0117
+#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 9, expected cost 0.0107
+#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 10, expected cost 0.0099
+#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 11, expected cost 0.0093
+#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 12, expected cost 0.0087
+#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 13, expected cost 0.0082
+#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 14, expected cost 0.0078
+#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 15, expected cost 0.0074</div><div class='input'><span class='fu'>evaluate_term_embeddings</span>(<span class='no'>term_vectors</span>, <span class='kw'>terms_pairs</span> <span class='kw'>=</span> <span class='no'>terms_pairs_test</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Given terms have not got embeddings, NULL will be returned.</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Given terms have not got embeddings, NULL will be returned.</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Given terms have not got embeddings, NULL will be returned.</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Given terms have not got embeddings, NULL will be returned.</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Given terms have not got embeddings, NULL will be returned.</span></div><div class='output co'>#&gt;         1 2 3 4         5       MEAN
 #&gt; person  0 0 0 0 0.5000000 0.10000000
 #&gt; spec    0 0 0 0 0.0000000 0.00000000
 #&gt; synonym 0 0 0 0 0.5000000 0.10000000
@@ -174,6 +178,8 @@ for each given list of pairs for the context from 1 to <code>n_max</code>.</p>
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
+
+      <li><a href="#see-also">See also</a></li>
       
       <li><a href="#examples">Examples</a></li>
     </ul>

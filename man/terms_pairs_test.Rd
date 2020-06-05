@@ -21,7 +21,7 @@ An example dataset containing pairs of analogies of medical terms to evaluate th
 of embedddings of terms by functions \link{analogy_task} and \link{synonym_task}.
 }
 \details{
-The assessing the quality of the real-data embeddings was performed by 7 types of analogies, described
+Assessing the quality of real-data embeddings was performed by 7 types of analogies, described
 in the paper Dobrakowski et al., 2019.
 }
 \references{

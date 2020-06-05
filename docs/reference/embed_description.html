@@ -132,24 +132,28 @@ of NA is returned.</p>
 
     <p>A vector of the embedding of the description.</p>
     
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code><a href='embed_visit.html'>embed_visit</a></code>, <code><a href='embed_list_visits.html'>embed_list_visits</a></code></p></div>
+    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>term_vectors</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='embed_terms.html'>embed_terms</a></span>(<span class='no'>interviews</span>, <span class='kw'>embedding_size</span> <span class='kw'>=</span> <span class='fl'>10L</span>,
-  <span class='kw'>term_count_min</span> <span class='kw'>=</span> <span class='fl'>1L</span>)</div><div class='output co'>#&gt; INFO [2020-05-29 09:12:03] 2020-05-29 09:12:03 - epoch 1, expected cost 0.1702
-#&gt; INFO [2020-05-29 09:12:03] 2020-05-29 09:12:03 - epoch 2, expected cost 0.0983
-#&gt; INFO [2020-05-29 09:12:03] 2020-05-29 09:12:03 - epoch 3, expected cost 0.0628
-#&gt; INFO [2020-05-29 09:12:03] 2020-05-29 09:12:03 - epoch 4, expected cost 0.0421
-#&gt; INFO [2020-05-29 09:12:03] 2020-05-29 09:12:03 - epoch 5, expected cost 0.0293
-#&gt; INFO [2020-05-29 09:12:03] 2020-05-29 09:12:03 - epoch 6, expected cost 0.0209
-#&gt; INFO [2020-05-29 09:12:03] 2020-05-29 09:12:03 - epoch 7, expected cost 0.0154
-#&gt; INFO [2020-05-29 09:12:03] 2020-05-29 09:12:03 - epoch 8, expected cost 0.0116
-#&gt; INFO [2020-05-29 09:12:03] 2020-05-29 09:12:03 - epoch 9, expected cost 0.0088
-#&gt; INFO [2020-05-29 09:12:03] 2020-05-29 09:12:03 - epoch 10, expected cost 0.0069
-#&gt; INFO [2020-05-29 09:12:03] 2020-05-29 09:12:03 - epoch 11, expected cost 0.0054
-#&gt; INFO [2020-05-29 09:12:03] 2020-05-29 09:12:03 - epoch 12, expected cost 0.0042
-#&gt; INFO [2020-05-29 09:12:03] 2020-05-29 09:12:03 - epoch 13, expected cost 0.0033
-#&gt; INFO [2020-05-29 09:12:03] 2020-05-29 09:12:03 - epoch 14, expected cost 0.0027
-#&gt; INFO [2020-05-29 09:12:03] 2020-05-29 09:12:03 - epoch 15, expected cost 0.0021</div><div class='input'>
+  <span class='kw'>term_count_min</span> <span class='kw'>=</span> <span class='fl'>1L</span>)</div><div class='output co'>#&gt; INFO [2020-06-05 12:42:03] 2020-06-05 12:42:03 - epoch 1, expected cost 0.1702
+#&gt; INFO [2020-06-05 12:42:03] 2020-06-05 12:42:03 - epoch 2, expected cost 0.0983
+#&gt; INFO [2020-06-05 12:42:03] 2020-06-05 12:42:03 - epoch 3, expected cost 0.0628
+#&gt; INFO [2020-06-05 12:42:03] 2020-06-05 12:42:03 - epoch 4, expected cost 0.0421
+#&gt; INFO [2020-06-05 12:42:03] 2020-06-05 12:42:03 - epoch 5, expected cost 0.0293
+#&gt; INFO [2020-06-05 12:42:03] 2020-06-05 12:42:03 - epoch 6, expected cost 0.0209
+#&gt; INFO [2020-06-05 12:42:03] 2020-06-05 12:42:03 - epoch 7, expected cost 0.0154
+#&gt; INFO [2020-06-05 12:42:03] 2020-06-05 12:42:03 - epoch 8, expected cost 0.0116
+#&gt; INFO [2020-06-05 12:42:03] 2020-06-05 12:42:03 - epoch 9, expected cost 0.0088
+#&gt; INFO [2020-06-05 12:42:03] 2020-06-05 12:42:03 - epoch 10, expected cost 0.0069
+#&gt; INFO [2020-06-05 12:42:03] 2020-06-05 12:42:03 - epoch 11, expected cost 0.0054
+#&gt; INFO [2020-06-05 12:42:03] 2020-06-05 12:42:03 - epoch 12, expected cost 0.0042
+#&gt; INFO [2020-06-05 12:42:03] 2020-06-05 12:42:03 - epoch 13, expected cost 0.0033
+#&gt; INFO [2020-06-05 12:42:03] 2020-06-05 12:42:03 - epoch 14, expected cost 0.0027
+#&gt; INFO [2020-06-05 12:42:03] 2020-06-05 12:42:03 - epoch 15, expected cost 0.0021</div><div class='input'>
 <span class='fu'>embed_description</span>(<span class='st'>"fever"</span>, <span class='no'>term_vectors</span>)</div><div class='output co'>#&gt;  [1] -0.44817320  0.42308888  0.29866162  0.04866217  0.41611040  0.01898181
 #&gt;  [7]  0.04344400  0.50067359 -0.04140102 -0.32893002</div><div class='input'><span class='fu'>embed_description</span>(<span class='st'>"fever, cough"</span>, <span class='no'>term_vectors</span>)</div><div class='output co'>#&gt;  [1] -0.2216973  0.4009457  0.3580982 -0.2150680  0.2885277 -0.2129360
 #&gt;  [7]  0.2515895  0.1870335 -0.1105612 -0.3687145</div><div class='input'><span class='fu'>embed_description</span>(<span class='st'>"fever, cough, temperature"</span>,
@@ -163,6 +167,8 @@ of NA is returned.</p>
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
+
+      <li><a href="#see-also">See also</a></li>
       
       <li><a href="#examples">Examples</a></li>
     </ul>

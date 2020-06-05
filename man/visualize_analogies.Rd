@@ -41,3 +41,6 @@ visualize_analogies(term_vectors, terms_pairs_test$person,
   find_analogies = TRUE, n = 10)
 
 }
+\seealso{
+\code{\link{analogy_task}}, \code{\link{evaluate_term_embeddings}}, \code{\link{terms_pairs_test}}
+}

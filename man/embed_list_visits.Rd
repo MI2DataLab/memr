@@ -25,8 +25,7 @@ A matrix of embeddings of visits -- in each row there is an embedding of one vis
 Generate embeddings of given visits, contained in two named vectors. One
 vector contains the descriptions of interviews and the second -- the
 descriptions of examinations. This function interatively calls
-\link{embed_visit} function. This function on about 100k visits should
-take about 4 minutes on i7-7700HQ CPU.
+\link{embed_visit} function.
 }
 \examples{
 inter_term_vectors <- embed_terms(interviews, embedding_size = 10L,
@@ -51,4 +50,7 @@ visits_vectors <- embed_list_visits(interviews, "",
 nrow(visits_vectors)
 visits_vectors
 
+}
+\seealso{
+\code{\link{embed_visit}}, \code{\link{embed_description}}
 }

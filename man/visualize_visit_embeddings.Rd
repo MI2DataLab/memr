@@ -5,7 +5,7 @@
 \title{Visualize Embeddings of Visits}
 \usage{
 visualize_visit_embeddings(visits_vectors, visit_table, method = "tsne",
-  color_by, spec, clusters, n_doctors = 5L, n_codes = 9L,
+  color_by, spec = NULL, clusters, n_doctors = 5L, n_codes = 9L,
   save = FALSE, path_to_save)
 }
 \arguments{
