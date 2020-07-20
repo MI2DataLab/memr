@@ -58,12 +58,12 @@ subsets of visits with the same diagnosis but different symptoms.
 
 # memr package
 
-The basis of ``memr`` is creating of medical terms embeddings based on GloVe algorithm [@pennington2014glove] implemented in R package ``text2vec`` by @text2vec. Having a vector of terms extracted from visits' descriptions `merged_terms` we can compute term embeddings by:
+The basis of ``memr`` is creating of medical terms embeddings based on GloVe algorithm [@pennington2014glove] implemented in R package ``text2vec`` by [@text2vec]. Having a vector of terms extracted from visits' descriptions `merged_terms` we can compute term embeddings by:
 ```
 term_vectors <- embed_terms(merged_terms)
 ```
 
-We can validate the quality of computed embeddings by performing and visualizing 'word analogy task' introduced by @mikolov2013efficient. The function `visualize_analogies` produces PCA plots (with ``ggplot2`` package) of given pairs of terms (`terms_pairs`):
+We can validate the quality of computed embeddings by performing and visualizing 'word analogy task' introduced by [@mikolov2013efficient]. The function `visualize_analogies` produces PCA plots (with ``ggplot2`` package) of given pairs of terms (`terms_pairs`):
 ```
 visualize_analogies(term_vectors, terms_pairs)
 ```
@@ -98,6 +98,6 @@ visualize_icd10(visits_vectors, visits)
 # Acknowledgements
 
 The package was created during the research financially supported by the Polish Centre for Research and Development
-(Grant POIR.01.01.01-00-0328/17). The results of the research are described in the paper @dobrakowski2019patients.
+(Grant POIR.01.01.01-00-0328/17). The results of the research are described in the paper [@dobrakowski2019patients].
 
 # References
