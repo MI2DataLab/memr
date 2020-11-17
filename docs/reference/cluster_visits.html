@@ -8,23 +8,33 @@
 
 <title>Cluster Visits — cluster_visits • memr</title>
 
+
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+
+<!-- dalexverse -->
+<link href="../dalexverse.css" rel="stylesheet">
+<link href="../dalexverse-2.css" rel="stylesheet">
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -32,12 +42,14 @@
 
 
 
-<meta property="og:title" content="Cluster Visits — cluster_visits" />
 
+
+
+<meta property="og:title" content="Cluster Visits — cluster_visits" />
 <meta property="og:description" content="Cluster visits for given specialty of doctors, based on
 embeddings of visits. The clustering is performed by
 the k-means algorithm." />
-<meta name="twitter:card" content="summary" />
+
 
 
 
@@ -50,11 +62,19 @@ the k-means algorithm." />
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 
+<!-- google analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-5650686-14""></script>
+<script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
 
+ gtag('config', 'UA-5650686-14');
+</script>
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -66,14 +86,18 @@ the k-means algorithm." />
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">memr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
-      </span>
-    </div>
 
+      <div class="navbar-brand-container">
+        <a class="navbar-brand" href="../index.html">memr</a>
+        <div class="info">
+          <span class="partof">part of the <a href="https://github.com/ModelOriented/DrWhy">DrWhy.AI</a>
+           developed by the <a href="https://mi2.mini.pw.edu.pl/">MI^2 DataLab</a> </span>
+          <span class="version version-default">0.1.0</span>
+        </div>
+      </div>
+    </div>
     <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="../index.html">
     <span class="fas fa fas fa-home fa-lg"></span>
@@ -83,9 +107,6 @@ the k-means algorithm." />
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
-      </ul>
-      
-      <ul class="nav navbar-nav navbar-right">
         
       </ul>
       
@@ -106,16 +127,14 @@ the k-means algorithm." />
     </div>
 
     <div class="ref-description">
-    
     <p>Cluster visits for given specialty of doctors, based on
 embeddings of visits. The clustering is performed by
 the k-means algorithm.</p>
-    
     </div>
 
-    <pre class="usage"><span class='fu'>cluster_visits</span>(<span class='no'>visits_vectors</span>, <span class='no'>visit_table</span>, <span class='no'>spec</span>, <span class='kw'>cluster_number</span> <span class='kw'>=</span> <span class='fl'>5</span>,
-  <span class='kw'>nstart</span> <span class='kw'>=</span> <span class='fl'>50</span>, <span class='kw'>iter.max</span> <span class='kw'>=</span> <span class='fl'>15</span>)</pre>
-    
+    <pre class="usage"><span class='fu'>cluster_visits</span><span class='op'>(</span><span class='va'>visits_vectors</span>, <span class='va'>visit_table</span>, <span class='va'>spec</span>, cluster_number <span class='op'>=</span> <span class='fl'>5</span>,
+  nstart <span class='op'>=</span> <span class='fl'>50</span>, iter.max <span class='op'>=</span> <span class='fl'>15</span><span class='op'>)</span></pre>
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -125,7 +144,7 @@ the k-means algorithm.</p>
     </tr>
     <tr>
       <th>visit_table</th>
-      <td><p>A data frame with columns:</p><dl class='dl-horizontal'>
+      <td><p>A data frame with columns:</p><dl>
   <dt><code>visit_id</code></dt><dd><p></p></dd>
   <dt><code>specialties</code></dt><dd><p>Specialties of doctors, separated by ", "</p></dd>
 
@@ -148,73 +167,32 @@ the k-means algorithm.</p>
       <td><p>Optionally, <code>inter.max</code> argument of <code>kmeans</code> (default: 15)</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>The result of k-means with: cluster, centers etc.</p>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>inter_term_vectors</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='embed_terms.html'>embed_terms</a></span>(<span class='no'>interviews</span>, <span class='kw'>embedding_size</span> <span class='kw'>=</span> <span class='fl'>10L</span>,
-                                  <span class='kw'>term_count_min</span> <span class='kw'>=</span> <span class='fl'>1L</span>)</div><div class='output co'>#&gt; INFO [2020-06-05 12:42:03] 2020-06-05 12:42:03 - epoch 1, expected cost 0.1702
-#&gt; INFO [2020-06-05 12:42:03] 2020-06-05 12:42:03 - epoch 2, expected cost 0.0983
-#&gt; INFO [2020-06-05 12:42:03] 2020-06-05 12:42:03 - epoch 3, expected cost 0.0628
-#&gt; INFO [2020-06-05 12:42:03] 2020-06-05 12:42:03 - epoch 4, expected cost 0.0421
-#&gt; INFO [2020-06-05 12:42:03] 2020-06-05 12:42:03 - epoch 5, expected cost 0.0293
-#&gt; INFO [2020-06-05 12:42:03] 2020-06-05 12:42:03 - epoch 6, expected cost 0.0209
-#&gt; INFO [2020-06-05 12:42:03] 2020-06-05 12:42:03 - epoch 7, expected cost 0.0154
-#&gt; INFO [2020-06-05 12:42:03] 2020-06-05 12:42:03 - epoch 8, expected cost 0.0116
-#&gt; INFO [2020-06-05 12:42:03] 2020-06-05 12:42:03 - epoch 9, expected cost 0.0088
-#&gt; INFO [2020-06-05 12:42:03] 2020-06-05 12:42:03 - epoch 10, expected cost 0.0069
-#&gt; INFO [2020-06-05 12:42:03] 2020-06-05 12:42:03 - epoch 11, expected cost 0.0054
-#&gt; INFO [2020-06-05 12:42:03] 2020-06-05 12:42:03 - epoch 12, expected cost 0.0042
-#&gt; INFO [2020-06-05 12:42:03] 2020-06-05 12:42:03 - epoch 13, expected cost 0.0033
-#&gt; INFO [2020-06-05 12:42:03] 2020-06-05 12:42:03 - epoch 14, expected cost 0.0027
-#&gt; INFO [2020-06-05 12:42:03] 2020-06-05 12:42:03 - epoch 15, expected cost 0.0021</div><div class='input'><span class='no'>exam_term_vectors</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='embed_terms.html'>embed_terms</a></span>(<span class='no'>examinations</span>, <span class='kw'>embedding_size</span> <span class='kw'>=</span> <span class='fl'>10L</span>,
-                                 <span class='kw'>term_count_min</span> <span class='kw'>=</span> <span class='fl'>1L</span>)</div><div class='output co'>#&gt; INFO [2020-06-05 12:42:03] 2020-06-05 12:42:03 - epoch 1, expected cost 0.0729
-#&gt; INFO [2020-06-05 12:42:03] 2020-06-05 12:42:03 - epoch 2, expected cost 0.0370
-#&gt; INFO [2020-06-05 12:42:03] 2020-06-05 12:42:03 - epoch 3, expected cost 0.0243
-#&gt; INFO [2020-06-05 12:42:03] 2020-06-05 12:42:03 - epoch 4, expected cost 0.0180
-#&gt; INFO [2020-06-05 12:42:03] 2020-06-05 12:42:03 - epoch 5, expected cost 0.0142
-#&gt; INFO [2020-06-05 12:42:03] 2020-06-05 12:42:03 - epoch 6, expected cost 0.0118
-#&gt; INFO [2020-06-05 12:42:03] 2020-06-05 12:42:03 - epoch 7, expected cost 0.0100
-#&gt; INFO [2020-06-05 12:42:03] 2020-06-05 12:42:03 - epoch 8, expected cost 0.0087
-#&gt; INFO [2020-06-05 12:42:03] 2020-06-05 12:42:03 - epoch 9, expected cost 0.0076
-#&gt; INFO [2020-06-05 12:42:03] 2020-06-05 12:42:03 - epoch 10, expected cost 0.0068
-#&gt; INFO [2020-06-05 12:42:03] 2020-06-05 12:42:03 - epoch 11, expected cost 0.0061
-#&gt; INFO [2020-06-05 12:42:03] 2020-06-05 12:42:03 - epoch 12, expected cost 0.0054
-#&gt; INFO [2020-06-05 12:42:03] 2020-06-05 12:42:03 - epoch 13, expected cost 0.0049
-#&gt; INFO [2020-06-05 12:42:03] 2020-06-05 12:42:03 - epoch 14, expected cost 0.0044
-#&gt; INFO [2020-06-05 12:42:03] 2020-06-05 12:42:03 - epoch 15, expected cost 0.0040</div><div class='input'><span class='no'>visits_vectors</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='embed_list_visits.html'>embed_list_visits</a></span>(<span class='no'>interviews</span>,
-                                    <span class='no'>examinations</span>, <span class='no'>inter_term_vectors</span>, <span class='no'>exam_term_vectors</span>)
-<span class='no'>clusters</span> <span class='kw'>&lt;-</span> <span class='fu'>cluster_visits</span>(<span class='no'>visits_vectors</span>, <span class='no'>visits</span>,
-                           <span class='kw'>spec</span> <span class='kw'>=</span> <span class='st'>"internist"</span>,
-                           <span class='kw'>cluster_number</span> <span class='kw'>=</span> <span class='fl'>2L</span>)
-<span class='no'>clusters</span>$<span class='no'>size</span></div><div class='output co'>#&gt; [1] 2 3</div><div class='input'>
-<span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span>(<span class='no'>clusters</span>$<span class='no'>withinss</span>)</div><div class='output co'>#&gt; [1] 0.7241415</div><div class='input'><span class='no'>clusters</span>$<span class='no'>centers</span></div><div class='output co'>#&gt;          [,1]         [,2]        [,3]        [,4]       [,5]       [,6]
-#&gt; 1 -0.14710403 -0.007127635  0.02586249 -0.12018036 0.21806564 -0.3522924
-#&gt; 2 -0.05078141  0.188806783 -0.02300495 -0.09025976 0.07066655  0.1223939
-#&gt;         [,7]      [,8]        [,9]      [,10]      [,11]      [,12]      [,13]
-#&gt; 1 0.41660633 0.1768274 -0.20639076 -0.3613236 0.03380221 0.09424853 0.01584504
-#&gt; 2 0.09091954 0.1528559  0.03959341  0.1896488 0.00101390 0.08596512 0.02388359
-#&gt;        [,14]       [,15]       [,16]       [,17]      [,18]        [,19]
-#&gt; 1 0.01171652 -0.02278555 -0.14028305 -0.09151199 0.08645096 -0.005689785
-#&gt; 2 0.01149532 -0.07888786 -0.06050346  0.02048131 0.08563412  0.006679272
-#&gt;        [,20]
-#&gt; 1 -0.1439474
-#&gt; 2 -0.1196416</div><div class='input'>
+    <pre class="examples"><div class='input'><span class='va'>inter_term_vectors</span> <span class='op'>&lt;-</span> <span class='fu'><a href='embed_terms.html'>embed_terms</a></span><span class='op'>(</span><span class='va'>interviews</span>, embedding_size <span class='op'>=</span> <span class='fl'>10L</span>,
+                                  term_count_min <span class='op'>=</span> <span class='fl'>1L</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='error'>Error in .subset2(public_bind_env, "initialize")(...): unused arguments (word_vectors_size = 10, vocabulary = list(c("fever", "rhinitis", "cough", "eye", "thyroid"), c(3, 3, 4, 4, 6), c(3, 3, 4, 4, 6)))</span></div><div class='input'><span class='va'>exam_term_vectors</span> <span class='op'>&lt;-</span> <span class='fu'><a href='embed_terms.html'>embed_terms</a></span><span class='op'>(</span><span class='va'>examinations</span>, embedding_size <span class='op'>=</span> <span class='fl'>10L</span>,
+                                 term_count_min <span class='op'>=</span> <span class='fl'>1L</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='error'>Error in .subset2(public_bind_env, "initialize")(...): unused arguments (word_vectors_size = 10, vocabulary = list(c("fever", "man", "mother", "cough", "heart", "patient", "thyroid", "eye", "rhinitis", "woman", "father"), c(2, 2, 2, 3, 3, 3, 3, 4, 5, 6, 7), c(2, 2, 2, 3, 3, 3, 3, 4, 5, 6, 7)))</span></div><div class='input'><span class='va'>visits_vectors</span> <span class='op'>&lt;-</span> <span class='fu'><a href='embed_list_visits.html'>embed_list_visits</a></span><span class='op'>(</span><span class='va'>interviews</span>,
+                                    <span class='va'>examinations</span>, <span class='va'>inter_term_vectors</span>, <span class='va'>exam_term_vectors</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='error'>Error in ncol(term_vectors): object 'inter_term_vectors' not found</span></div><div class='input'><span class='va'>clusters</span> <span class='op'>&lt;-</span> <span class='fu'>cluster_visits</span><span class='op'>(</span><span class='va'>visits_vectors</span>, <span class='va'>visits</span>,
+                           spec <span class='op'>=</span> <span class='st'>"internist"</span>,
+                           cluster_number <span class='op'>=</span> <span class='fl'>2L</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='error'>Error in rownames(visits_vectors): object 'visits_vectors' not found</span></div><div class='input'><span class='va'>clusters</span><span class='op'>$</span><span class='va'>size</span>
+</div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): object 'clusters' not found</span></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>clusters</span><span class='op'>$</span><span class='va'>withinss</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): object 'clusters' not found</span></div><div class='input'><span class='va'>clusters</span><span class='op'>$</span><span class='va'>centers</span>
+</div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): object 'clusters' not found</span></div><div class='input'>
 </div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#value">Value</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
@@ -225,7 +203,7 @@ the k-means algorithm.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a>.</p>
 </div>
 
       </footer>
