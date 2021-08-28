@@ -8,23 +8,33 @@
 
 <title>Get Recommendations for Clusters — get_cluster_recommendations • memr</title>
 
+
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+
+<!-- dalexverse -->
+<link href="../dalexverse.css" rel="stylesheet">
+<link href="../dalexverse-2.css" rel="stylesheet">
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -32,12 +42,14 @@
 
 
 
-<meta property="og:title" content="Get Recommendations for Clusters — get_cluster_recommendations" />
 
+
+
+<meta property="og:title" content="Get Recommendations for Clusters — get_cluster_recommendations" />
 <meta property="og:description" content="Get recommendations prescribed by doctors
 to patients from given clusters. The categories
 of recommendation terms can be specified." />
-<meta name="twitter:card" content="summary" />
+
 
 
 
@@ -50,11 +62,19 @@ of recommendation terms can be specified." />
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 
+<!-- google analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-5650686-14""></script>
+<script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
 
+ gtag('config', 'UA-5650686-14');
+</script>
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -66,14 +86,18 @@ of recommendation terms can be specified." />
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">memr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
-      </span>
-    </div>
 
+      <div class="navbar-brand-container">
+        <a class="navbar-brand" href="../index.html">memr</a>
+        <div class="info">
+          <span class="partof">part of the <a href="https://github.com/ModelOriented/DrWhy">DrWhy.AI</a>
+           developed by the <a href="https://mi2.mini.pw.edu.pl/">MI^2 DataLab</a> </span>
+          <span class="version version-default">0.1.0</span>
+        </div>
+      </div>
+    </div>
     <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="../index.html">
     <span class="fas fa fas fa-home fa-lg"></span>
@@ -83,9 +107,6 @@ of recommendation terms can be specified." />
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
-      </ul>
-      
-      <ul class="nav navbar-nav navbar-right">
         
       </ul>
       
@@ -106,16 +127,14 @@ of recommendation terms can be specified." />
     </div>
 
     <div class="ref-description">
-    
     <p>Get recommendations prescribed by doctors
 to patients from given clusters. The categories
 of recommendation terms can be specified.</p>
-    
     </div>
 
-    <pre class="usage"><span class='fu'>get_cluster_recommendations</span>(<span class='no'>recom_descriptions</span>, <span class='no'>clusters</span>,
-  <span class='kw'>category</span> <span class='kw'>=</span> <span class='st'>"all"</span>, <span class='no'>recom_table</span>)</pre>
-    
+    <pre class="usage"><span class='fu'>get_cluster_recommendations</span><span class='op'>(</span><span class='va'>recom_descriptions</span>, <span class='va'>clusters</span>,
+  category <span class='op'>=</span> <span class='st'>"all"</span>, <span class='va'>recom_table</span><span class='op'>)</span></pre>
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -135,14 +154,14 @@ terms in the descriptions are separated by ", "</p></td>
     </tr>
     <tr>
       <th>recom_table</th>
-      <td><p>(necessary if <code>category != "all"</code>) A data frame with columns:</p><dl class='dl-horizontal'>
+      <td><p>(necessary if <code>category != "all"</code>) A data frame with columns:</p><dl>
   <dt><code>term</code></dt><dd><p>a term of recommendation</p></dd>
   <dt><code>category</code></dt><dd><p>a category of the term</p></dd>
 
 </dl></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>A list of data frames. For each cluster there is a data frame with columns:</p>
@@ -151,99 +170,30 @@ terms in the descriptions are separated by ", "</p></td>
   <dt><code>frequency</code></dt><dd><p>A percentage of visits containing the reccomentation</p></dd>
   Rows are sorted by the frequency.
 
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>inter_term_vectors</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='embed_terms.html'>embed_terms</a></span>(<span class='no'>interviews</span>, <span class='kw'>embedding_size</span> <span class='kw'>=</span> <span class='fl'>10L</span>,
-                                  <span class='kw'>term_count_min</span> <span class='kw'>=</span> <span class='fl'>1L</span>)</div><div class='output co'>#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 1, expected cost 0.1702
-#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 2, expected cost 0.0983
-#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 3, expected cost 0.0628
-#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 4, expected cost 0.0421
-#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 5, expected cost 0.0293
-#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 6, expected cost 0.0209
-#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 7, expected cost 0.0154
-#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 8, expected cost 0.0116
-#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 9, expected cost 0.0088
-#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 10, expected cost 0.0069
-#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 11, expected cost 0.0054
-#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 12, expected cost 0.0042
-#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 13, expected cost 0.0033
-#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 14, expected cost 0.0027
-#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 15, expected cost 0.0021</div><div class='input'><span class='no'>exam_term_vectors</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='embed_terms.html'>embed_terms</a></span>(<span class='no'>examinations</span>, <span class='kw'>embedding_size</span> <span class='kw'>=</span> <span class='fl'>10L</span>,
-                                 <span class='kw'>term_count_min</span> <span class='kw'>=</span> <span class='fl'>1L</span>)</div><div class='output co'>#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 1, expected cost 0.0729
-#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 2, expected cost 0.0370
-#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 3, expected cost 0.0243
-#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 4, expected cost 0.0180
-#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 5, expected cost 0.0142
-#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 6, expected cost 0.0118
-#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 7, expected cost 0.0100
-#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 8, expected cost 0.0087
-#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 9, expected cost 0.0076
-#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 10, expected cost 0.0068
-#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 11, expected cost 0.0061
-#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 12, expected cost 0.0054
-#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 13, expected cost 0.0049
-#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 14, expected cost 0.0044
-#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 15, expected cost 0.0040</div><div class='input'><span class='no'>visits_vectors</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='embed_list_visits.html'>embed_list_visits</a></span>(<span class='no'>interviews</span>,
-                                    <span class='no'>examinations</span>, <span class='no'>inter_term_vectors</span>, <span class='no'>exam_term_vectors</span>)
-<span class='no'>clusters</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='cluster_visits.html'>cluster_visits</a></span>(<span class='no'>visits_vectors</span>, <span class='no'>visits</span>,
-                           <span class='kw'>spec</span> <span class='kw'>=</span> <span class='st'>"internist"</span>,
-                           <span class='kw'>cluster_number</span> <span class='kw'>=</span> <span class='fl'>2L</span>)
-
-<span class='fu'>get_cluster_recommendations</span>(<span class='no'>recommendations</span>, <span class='no'>clusters</span>, <span class='kw'>recom_table</span> <span class='kw'>=</span> <span class='no'>terms_categories</span>)</div><div class='output co'>#&gt; [[1]]
-#&gt; <span style='color: #949494;'># A tibble: 4 x 3</span><span>
-#&gt;   recommendation  count frequency
-#&gt;   </span><span style='color: #949494;font-style: italic;'>&lt;fct&gt;</span><span>           </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span>     </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #BCBCBC;'>1</span><span> hospital            2       1  
-#&gt; </span><span style='color: #BCBCBC;'>2</span><span> endocrinologist     1       0.5
-#&gt; </span><span style='color: #BCBCBC;'>3</span><span> ophthalmologist     1       0.5
-#&gt; </span><span style='color: #BCBCBC;'>4</span><span> treatment           1       0.5
-#&gt; 
-#&gt; [[2]]
-#&gt; </span><span style='color: #949494;'># A tibble: 3 x 3</span><span>
-#&gt;   recommendation count frequency
-#&gt;   </span><span style='color: #949494;font-style: italic;'>&lt;fct&gt;</span><span>          </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span>     </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #BCBCBC;'>1</span><span> hospital           1     0.333
-#&gt; </span><span style='color: #BCBCBC;'>2</span><span> internist          1     0.333
-#&gt; </span><span style='color: #BCBCBC;'>3</span><span> sleep              1     0.333
-#&gt; </div><div class='input'><span class='fu'>get_cluster_recommendations</span>(<span class='no'>recommendations</span>, <span class='no'>clusters</span>, <span class='kw'>recom_table</span> <span class='kw'>=</span> <span class='no'>terms_categories</span>,
-<span class='kw'>category</span> <span class='kw'>=</span> <span class='st'>"anatomic"</span>)</div><div class='output co'>#&gt; [[1]]
-#&gt; </span><span style='color: #949494;'># A tibble: 0 x 3</span><span>
-#&gt; </span><span style='color: #949494;'># … with 3 variables: recommendation </span><span style='color: #949494;font-style: italic;'>&lt;fct&gt;</span><span style='color: #949494;'>, count </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span style='color: #949494;'>, frequency </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; 
-#&gt; [[2]]
-#&gt; </span><span style='color: #949494;'># A tibble: 0 x 3</span><span>
-#&gt; </span><span style='color: #949494;'># … with 3 variables: recommendation </span><span style='color: #949494;font-style: italic;'>&lt;fct&gt;</span><span style='color: #949494;'>, count </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span style='color: #949494;'>, frequency </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </div><div class='input'><span class='fu'>get_cluster_recommendations</span>(<span class='no'>recommendations</span>, <span class='no'>clusters</span>, <span class='kw'>recom_table</span> <span class='kw'>=</span> <span class='no'>terms_categories</span>,
-<span class='kw'>category</span> <span class='kw'>=</span> <span class='st'>"all"</span>)</div><div class='output co'>#&gt; [[1]]
-#&gt; </span><span style='color: #949494;'># A tibble: 4 x 3</span><span>
-#&gt;   recommendation  count frequency
-#&gt;   </span><span style='color: #949494;font-style: italic;'>&lt;fct&gt;</span><span>           </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span>     </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #BCBCBC;'>1</span><span> hospital            2       1  
-#&gt; </span><span style='color: #BCBCBC;'>2</span><span> endocrinologist     1       0.5
-#&gt; </span><span style='color: #BCBCBC;'>3</span><span> ophthalmologist     1       0.5
-#&gt; </span><span style='color: #BCBCBC;'>4</span><span> treatment           1       0.5
-#&gt; 
-#&gt; [[2]]
-#&gt; </span><span style='color: #949494;'># A tibble: 3 x 3</span><span>
-#&gt;   recommendation count frequency
-#&gt;   </span><span style='color: #949494;font-style: italic;'>&lt;fct&gt;</span><span>          </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span>     </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #BCBCBC;'>1</span><span> hospital           1     0.333
-#&gt; </span><span style='color: #BCBCBC;'>2</span><span> internist          1     0.333
-#&gt; </span><span style='color: #BCBCBC;'>3</span><span> sleep              1     0.333
-#&gt; </div><div class='input'>
-</div></span></pre>
+    <pre class="examples"><div class='input'><span class='va'>inter_term_vectors</span> <span class='op'>&lt;-</span> <span class='fu'><a href='embed_terms.html'>embed_terms</a></span><span class='op'>(</span><span class='va'>interviews</span>, embedding_size <span class='op'>=</span> <span class='fl'>10L</span>,
+                                  term_count_min <span class='op'>=</span> <span class='fl'>1L</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='error'>Error in .subset2(public_bind_env, "initialize")(...): unused arguments (word_vectors_size = 10, vocabulary = list(c("fever", "rhinitis", "cough", "eye", "thyroid"), c(3, 3, 4, 4, 6), c(3, 3, 4, 4, 6)))</span></div><div class='input'><span class='va'>exam_term_vectors</span> <span class='op'>&lt;-</span> <span class='fu'><a href='embed_terms.html'>embed_terms</a></span><span class='op'>(</span><span class='va'>examinations</span>, embedding_size <span class='op'>=</span> <span class='fl'>10L</span>,
+                                 term_count_min <span class='op'>=</span> <span class='fl'>1L</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='error'>Error in .subset2(public_bind_env, "initialize")(...): unused arguments (word_vectors_size = 10, vocabulary = list(c("fever", "man", "mother", "cough", "heart", "patient", "thyroid", "eye", "rhinitis", "woman", "father"), c(2, 2, 2, 3, 3, 3, 3, 4, 5, 6, 7), c(2, 2, 2, 3, 3, 3, 3, 4, 5, 6, 7)))</span></div><div class='input'><span class='va'>visits_vectors</span> <span class='op'>&lt;-</span> <span class='fu'><a href='embed_list_visits.html'>embed_list_visits</a></span><span class='op'>(</span><span class='va'>interviews</span>,
+                                    <span class='va'>examinations</span>, <span class='va'>inter_term_vectors</span>, <span class='va'>exam_term_vectors</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='error'>Error in ncol(term_vectors): object 'inter_term_vectors' not found</span></div><div class='input'><span class='va'>clusters</span> <span class='op'>&lt;-</span> <span class='fu'><a href='cluster_visits.html'>cluster_visits</a></span><span class='op'>(</span><span class='va'>visits_vectors</span>, <span class='va'>visits</span>,
+                           spec <span class='op'>=</span> <span class='st'>"internist"</span>,
+                           cluster_number <span class='op'>=</span> <span class='fl'>2L</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='error'>Error in rownames(visits_vectors): object 'visits_vectors' not found</span></div><div class='input'>
+<span class='fu'>get_cluster_recommendations</span><span class='op'>(</span><span class='va'>recommendations</span>, <span class='va'>clusters</span>, recom_table <span class='op'>=</span> <span class='va'>terms_categories</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='error'>Error in nrow(clusters$centers): object 'clusters' not found</span></div><div class='input'><span class='fu'>get_cluster_recommendations</span><span class='op'>(</span><span class='va'>recommendations</span>, <span class='va'>clusters</span>, recom_table <span class='op'>=</span> <span class='va'>terms_categories</span>,
+category <span class='op'>=</span> <span class='st'>"anatomic"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='error'>Error in nrow(clusters$centers): object 'clusters' not found</span></div><div class='input'><span class='fu'>get_cluster_recommendations</span><span class='op'>(</span><span class='va'>recommendations</span>, <span class='va'>clusters</span>, recom_table <span class='op'>=</span> <span class='va'>terms_categories</span>,
+category <span class='op'>=</span> <span class='st'>"all"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='error'>Error in nrow(clusters$centers): object 'clusters' not found</span></div><div class='input'>
+</div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#value">Value</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
@@ -254,7 +204,7 @@ terms in the descriptions are separated by ", "</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a>.</p>
 </div>
 
       </footer>

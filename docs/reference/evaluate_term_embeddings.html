@@ -8,23 +8,33 @@
 
 <title>Evaluate Term Embeddings — evaluate_term_embeddings • memr</title>
 
+
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+
+<!-- dalexverse -->
+<link href="../dalexverse.css" rel="stylesheet">
+<link href="../dalexverse-2.css" rel="stylesheet">
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -32,14 +42,16 @@
 
 
 
-<meta property="og:title" content="Evaluate Term Embeddings — evaluate_term_embeddings" />
 
+
+
+<meta property="og:title" content="Evaluate Term Embeddings — evaluate_term_embeddings" />
 <meta property="og:description" content="Evaluate given term embeddings based on analogy_task and synonym_task.
 The list of test pairs should be given. The analogy_task is performed
 for each type of given analogies (initially, there are 7 proposed types of analogies,
 see terms_pairs_test). The accuracy is measured for the context size from 1 (the most
 restrictive) to the given n_max." />
-<meta name="twitter:card" content="summary" />
+
 
 
 
@@ -52,11 +64,19 @@ restrictive) to the given n_max." />
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 
+<!-- google analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-5650686-14""></script>
+<script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
 
+ gtag('config', 'UA-5650686-14');
+</script>
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -68,14 +88,18 @@ restrictive) to the given n_max." />
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">memr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
-      </span>
-    </div>
 
+      <div class="navbar-brand-container">
+        <a class="navbar-brand" href="../index.html">memr</a>
+        <div class="info">
+          <span class="partof">part of the <a href="https://github.com/ModelOriented/DrWhy">DrWhy.AI</a>
+           developed by the <a href="https://mi2.mini.pw.edu.pl/">MI^2 DataLab</a> </span>
+          <span class="version version-default">0.1.0</span>
+        </div>
+      </div>
+    </div>
     <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="../index.html">
     <span class="fas fa fas fa-home fa-lg"></span>
@@ -85,9 +109,6 @@ restrictive) to the given n_max." />
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
-      </ul>
-      
-      <ul class="nav navbar-nav navbar-right">
         
       </ul>
       
@@ -108,17 +129,15 @@ restrictive) to the given n_max." />
     </div>
 
     <div class="ref-description">
-    
     <p>Evaluate given term embeddings based on <a href='analogy_task.html'>analogy_task</a> and <a href='synonym_task.html'>synonym_task</a>.
 The list of test pairs should be given. The <a href='analogy_task.html'>analogy_task</a> is performed
 for each type of given analogies (initially, there are 7 proposed types of analogies,
 see <a href='terms_pairs_test.html'>terms_pairs_test</a>). The accuracy is measured for the context size from 1 (the most
 restrictive) to the given <code>n_max</code>.</p>
-    
     </div>
 
-    <pre class="usage"><span class='fu'>evaluate_term_embeddings</span>(<span class='no'>term_vectors</span>, <span class='kw'>terms_pairs</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>n_max</span> <span class='kw'>=</span> <span class='fl'>5L</span>)</pre>
-    
+    <pre class="usage"><span class='fu'>evaluate_term_embeddings</span><span class='op'>(</span><span class='va'>term_vectors</span>, terms_pairs <span class='op'>=</span> <span class='cn'>NULL</span>, n_max <span class='op'>=</span> <span class='fl'>5L</span><span class='op'>)</span></pre>
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -138,52 +157,26 @@ contain two vectors of terms; if the list contains the element "synonym", the
 is performed <a href='analogy_task.html'>analogy_task</a></p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>A data frame of accuracies of the analogy task and the synonym task
 for each given list of pairs for the context from 1 to <code>n_max</code>.</p>
-    
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='analogy_task.html'>analogy_task</a></code>, <code><a href='synonym_task.html'>synonym_task</a></code>, <code><a href='terms_pairs_test.html'>terms_pairs_test</a></code></p></div>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>term_vectors</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='embed_terms.html'>embed_terms</a></span>(<span class='no'>examinations</span>, <span class='kw'>embedding_size</span> <span class='kw'>=</span> <span class='fl'>5L</span>,
-  <span class='kw'>term_count_min</span> <span class='kw'>=</span> <span class='fl'>1L</span>)</div><div class='output co'>#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 1, expected cost 0.1059
-#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 2, expected cost 0.0510
-#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 3, expected cost 0.0315
-#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 4, expected cost 0.0225
-#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 5, expected cost 0.0178
-#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 6, expected cost 0.0149
-#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 7, expected cost 0.0131
-#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 8, expected cost 0.0117
-#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 9, expected cost 0.0107
-#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 10, expected cost 0.0099
-#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 11, expected cost 0.0093
-#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 12, expected cost 0.0087
-#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 13, expected cost 0.0082
-#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 14, expected cost 0.0078
-#&gt; INFO [2020-06-05 12:42:06] 2020-06-05 12:42:06 - epoch 15, expected cost 0.0074</div><div class='input'><span class='fu'>evaluate_term_embeddings</span>(<span class='no'>term_vectors</span>, <span class='kw'>terms_pairs</span> <span class='kw'>=</span> <span class='no'>terms_pairs_test</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Given terms have not got embeddings, NULL will be returned.</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Given terms have not got embeddings, NULL will be returned.</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Given terms have not got embeddings, NULL will be returned.</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Given terms have not got embeddings, NULL will be returned.</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Given terms have not got embeddings, NULL will be returned.</span></div><div class='output co'>#&gt;         1 2 3 4         5       MEAN
-#&gt; person  0 0 0 0 0.5000000 0.10000000
-#&gt; spec    0 0 0 0 0.0000000 0.00000000
-#&gt; synonym 0 0 0 0 0.5000000 0.10000000
-#&gt; MEAN    0 0 0 0 0.3333333 0.06666667</div><div class='input'>
+    <pre class="examples"><div class='input'><span class='va'>term_vectors</span> <span class='op'>&lt;-</span> <span class='fu'><a href='embed_terms.html'>embed_terms</a></span><span class='op'>(</span><span class='va'>examinations</span>, embedding_size <span class='op'>=</span> <span class='fl'>5L</span>,
+  term_count_min <span class='op'>=</span> <span class='fl'>1L</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='error'>Error in .subset2(public_bind_env, "initialize")(...): unused arguments (word_vectors_size = 5, vocabulary = list(c("fever", "man", "mother", "cough", "heart", "patient", "thyroid", "eye", "rhinitis", "woman", "father"), c(2, 2, 2, 3, 3, 3, 3, 4, 5, 6, 7), c(2, 2, 2, 3, 3, 3, 3, 4, 5, 6, 7)))</span></div><div class='input'><span class='fu'>evaluate_term_embeddings</span><span class='op'>(</span><span class='va'>term_vectors</span>, terms_pairs <span class='op'>=</span> <span class='va'>terms_pairs_test</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='error'>Error in rownames(term_vectors): object 'term_vectors' not found</span></div><div class='input'>
 </div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#value">Value</a></li>
-
-      <li><a href="#see-also">See also</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
@@ -194,7 +187,7 @@ for each given list of pairs for the context from 1 to <code>n_max</code>.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a>.</p>
 </div>
 
       </footer>
